@@ -31,7 +31,7 @@ namespace Digital_Products.Data
         }
 
 
-        DbSet<User> Users { get; set; }
+        public DbSet<User> Users { get; set; }
         DbSet<Product> Products { get; set; }
         DbSet<Order> Orders { get; set; }
         DbSet<Payment> Payments { get; set; }

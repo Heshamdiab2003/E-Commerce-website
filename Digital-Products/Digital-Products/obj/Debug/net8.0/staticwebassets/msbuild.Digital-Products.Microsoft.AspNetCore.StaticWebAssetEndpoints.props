@@ -1,5 +1,17 @@
 ﻿<Project>
   <ItemGroup>
+    <StaticWebAssetEndpoint Include="_content/Digital-Products/css/signin.css">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\signin.css'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-jAQVYq3ji1hpveyVUsRt4YOI\u002BDp3asGdyK7Cp081cjs="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"1471"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022jAQVYq3ji1hpveyVUsRt4YOI\u002BDp3asGdyK7Cp081cjs=\u0022"},{"Name":"Last-Modified","Value":"Wed, 23 Apr 2025 17:10:44 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/Digital-Products/css/signin.keo055fle1.css">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\signin.css'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"keo055fle1"},{"Name":"integrity","Value":"sha256-jAQVYq3ji1hpveyVUsRt4YOI\u002BDp3asGdyK7Cp081cjs="},{"Name":"label","Value":"_content/Digital-Products/css/signin.css"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"1471"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022jAQVYq3ji1hpveyVUsRt4YOI\u002BDp3asGdyK7Cp081cjs=\u0022"},{"Name":"Last-Modified","Value":"Wed, 23 Apr 2025 17:10:44 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/Digital-Products/css/site.c2tiyv64ts.css">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\site.css'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>

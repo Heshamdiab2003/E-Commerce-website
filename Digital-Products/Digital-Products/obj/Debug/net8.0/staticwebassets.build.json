@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "M0FKf9HMXzkROvJY+wWZl3qXh/Ika7P3Y2pQB2b8AfQ=",
+  "Hash": "JefjU71Gc7/B85eIbBTSp0iDhtuKH87J73Tz2A4lqWM=",
   "Source": "Digital-Products",
   "BasePath": "_content/Digital-Products",
   "Mode": "Default",
@@ -57,6 +57,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "D:\\Depi Project\\Digital-Products\\Digital-Products\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\Digital-Products.bundle.scp.css"
+    },
+    {
+      "Identity": "D:\\Depi Project\\Digital-Products\\Digital-Products\\wwwroot\\css\\signin.css",
+      "SourceId": "Digital-Products",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Depi Project\\Digital-Products\\Digital-Products\\wwwroot\\",
+      "BasePath": "_content/Digital-Products",
+      "RelativePath": "css/signin#[.{fingerprint}]?.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "keo055fle1",
+      "Integrity": "jAQVYq3ji1hpveyVUsRt4YOI+Dp3asGdyK7Cp081cjs=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\signin.css"
     },
     {
       "Identity": "D:\\Depi Project\\Digital-Products\\Digital-Products\\wwwroot\\css\\site.css",
@@ -1320,6 +1341,88 @@
     }
   ],
   "Endpoints": [
+    {
+      "Route": "css/signin.css",
+      "AssetFile": "D:\\Depi Project\\Digital-Products\\Digital-Products\\wwwroot\\css\\signin.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1471"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"jAQVYq3ji1hpveyVUsRt4YOI+Dp3asGdyK7Cp081cjs=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 23 Apr 2025 17:10:44 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-jAQVYq3ji1hpveyVUsRt4YOI+Dp3asGdyK7Cp081cjs="
+        }
+      ]
+    },
+    {
+      "Route": "css/signin.keo055fle1.css",
+      "AssetFile": "D:\\Depi Project\\Digital-Products\\Digital-Products\\wwwroot\\css\\signin.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1471"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"jAQVYq3ji1hpveyVUsRt4YOI+Dp3asGdyK7Cp081cjs=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 23 Apr 2025 17:10:44 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "keo055fle1"
+        },
+        {
+          "Name": "label",
+          "Value": "css/signin.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-jAQVYq3ji1hpveyVUsRt4YOI+Dp3asGdyK7Cp081cjs="
+        }
+      ]
+    },
     {
       "Route": "css/site.c2tiyv64ts.css",
       "AssetFile": "D:\\Depi Project\\Digital-Products\\Digital-Products\\wwwroot\\css\\site.css",

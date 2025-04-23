@@ -1,8 +1,88 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
+  
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+
+<!-- هيدر -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+        <a class="navbar-brand" href="#">E-Store</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link active" href="#">الرئيسية</a></li>
+                <li class="nav-item"><a class="nav-link" href="/Product">المنتجات</a></li>
+                <li class="nav-item"><a class="nav-link" href="/Cart">سلة الشراء</a></li>
+                <li class="nav-item"><a class="nav-link" href="/Account/Login">تسجيل الدخول</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- بانر -->
+<div class="bg-primary text-white text-center p-5 mb-4 rounded">
+    <h1>مرحبًا بك في متجر الإلكترونيات</h1>
+    <p class="lead">اكتشف أحدث المنتجات بأفضل الأسعار</p>
+    <a href="/Product" class="btn btn-light btn-lg">تسوق الآن</a>
 </div>
+
+<!-- الأقسام -->
+<div class="container my-5">
+    <h2 class="text-center mb-4">أقسام المنتجات</h2>
+    <div class="row text-center">
+        <div class="col-md-2 col-6 mb-3">
+            <div class="border p-3 rounded">📱 موبايلات</div>
+        </div>
+        <div class="col-md-2 col-6 mb-3">
+            <div class="border p-3 rounded">🎧 سماعات</div>
+        </div>
+        <div class="col-md-2 col-6 mb-3">
+            <div class="border p-3 rounded">⌨️ كيبوردات</div>
+        </div>
+        <div class="col-md-2 col-6 mb-3">
+            <div class="border p-3 rounded">🖱️ ماوس</div>
+        </div>
+        <div class="col-md-2 col-6 mb-3">
+            <div class="border p-3 rounded">🖥️ شاشات</div>
+        </div>
+        <div class="col-md-2 col-6 mb-3">
+            <div class="border p-3 rounded">🔋 باور بانك</div>
+        </div>
+    </div>
+</div>
+
+<!-- منتجات مميزة -->
+<div class="container my-5">
+    <h2 class="text-center mb-4">منتجات مميزة</h2>
+    <div class="row justify-content-center">
+        <div class="col-md-3 mb-4">
+            <div class="card h-100">
+                <img src="/images/iphone.jpg" class="card-img-top" alt="iPhone">
+                <div class="card-body">
+                    <h5 class="card-title">iPhone 15 Pro</h5>
+                    <p class="card-text text-success fw-bold">$999</p>
+                    <a href="/Product/Details/1" class="btn btn-primary w-100">عرض التفاصيل</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-4">
+            <div class="card h-100">
+                <img src="/images/headphones.jpg" class="card-img-top" alt="Headphones">
+                <div class="card-body">
+                    <h5 class="card-title">Sony WH-1000XM5</h5>
+                    <p class="card-text text-success fw-bold">$349</p>
+                    <a href="/Product/Details/2" class="btn btn-primary w-100">عرض التفاصيل</a>
+                </div>
+            </div>
+        </div>
+        <!-- ضيف منتجات زي ما تحب -->
+    </div>
+</div>
+
+<!-- فوتر -->
+<footer class="bg-dark text-white text-center py-3 mt-5">
+    <p>&copy; 2025 E-Store. جميع الحقوق محفوظة.</p>
+</footer>
