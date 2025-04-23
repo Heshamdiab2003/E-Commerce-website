@@ -1,3 +1,6 @@
+using Microsoft.EntityFrameworkCore;
+using Digital_Products.Data;
+
 namespace Digital_Products
 {
     public class Program
@@ -9,7 +12,12 @@ namespace Digital_Products
             // Add services to the container.
             builder.Services.AddControllersWithViews();
 
+            builder.Services.AddDbContext<AppDbcontext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
             var app = builder.Build();
+
+
 
             // Configure the HTTP request pipeline.
             if (!app.Environment.IsDevelopment())
