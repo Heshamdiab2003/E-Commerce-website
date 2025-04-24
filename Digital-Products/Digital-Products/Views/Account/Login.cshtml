@@ -3,3 +3,39 @@
 *@
 @{
 }
+@{
+    Layout = null;
+}
+@model Digital_Products.Models.User
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="~/css/Login.css" />
+    <title>Login</title>
+</head>
+<body>
+    <div class="container">
+        <div class="item1">
+            <h1>Login</h1>
+            <p>Enter Your Details Below</p>
+        </div>
+        <form asp-controller="Account" asp-action="Login" method="post" class="form">
+            <div class="inputs">
+                <input asp-for="Email" type="email" placeholder="Email" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+                <input asp-for="PasswordHash" type="password" placeholder="Password" />
+                <span asp-validation-for="PasswordHash" class="text-danger"></span>
+            </div>
+            <button type="submit">Login</button>
+        </form>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.12/jquery.validate.unobtrusive.min.js"></script>
+</body>
+</html>
