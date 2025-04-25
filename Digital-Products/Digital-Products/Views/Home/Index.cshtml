@@ -1,88 +1,38 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
-  
+    Layout = null;
 }
-
-
-<!-- هيدر -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container">
-        <a class="navbar-brand" href="#">E-Store</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item"><a class="nav-link active" href="#">الرئيسية</a></li>
-                <li class="nav-item"><a class="nav-link" href="/Product">المنتجات</a></li>
-                <li class="nav-item"><a class="nav-link" href="/Cart">سلة الشراء</a></li>
-                <li class="nav-item"><a class="nav-link" href="/Account/Login">تسجيل الدخول</a></li>
-            </ul>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/css/Style.css">
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <h1>DigitalMart</h1>
+        <div class="SearchBar">
+            <i class="fas fa-search"></i>
+            <input type="search" placeholder="search">
         </div>
-    </div>
-</nav>
-
-<!-- بانر -->
-<div class="bg-primary text-white text-center p-5 mb-4 rounded">
-    <h1>مرحبًا بك في متجر الإلكترونيات</h1>
-    <p class="lead">اكتشف أحدث المنتجات بأفضل الأسعار</p>
-    <a href="/Product" class="btn btn-light btn-lg">تسوق الآن</a>
-</div>
-
-<!-- الأقسام -->
-<div class="container my-5">
-    <h2 class="text-center mb-4">أقسام المنتجات</h2>
-    <div class="row text-center">
-        <div class="col-md-2 col-6 mb-3">
-            <div class="border p-3 rounded">📱 موبايلات</div>
-        </div>
-        <div class="col-md-2 col-6 mb-3">
-            <div class="border p-3 rounded">🎧 سماعات</div>
-        </div>
-        <div class="col-md-2 col-6 mb-3">
-            <div class="border p-3 rounded">⌨️ كيبوردات</div>
-        </div>
-        <div class="col-md-2 col-6 mb-3">
-            <div class="border p-3 rounded">🖱️ ماوس</div>
-        </div>
-        <div class="col-md-2 col-6 mb-3">
-            <div class="border p-3 rounded">🖥️ شاشات</div>
-        </div>
-        <div class="col-md-2 col-6 mb-3">
-            <div class="border p-3 rounded">🔋 باور بانك</div>
-        </div>
-    </div>
-</div>
-
-<!-- منتجات مميزة -->
-<div class="container my-5">
-    <h2 class="text-center mb-4">منتجات مميزة</h2>
-    <div class="row justify-content-center">
-        <div class="col-md-3 mb-4">
-            <div class="card h-100">
-                <img src="/images/iphone.jpg" class="card-img-top" alt="iPhone">
-                <div class="card-body">
-                    <h5 class="card-title">iPhone 15 Pro</h5>
-                    <p class="card-text text-success fw-bold">$999</p>
-                    <a href="/Product/Details/1" class="btn btn-primary w-100">عرض التفاصيل</a>
+        <div class="container">
+            <div class="register">
+                <i class="fas fa-user"></i>
+                <div class="links">
+                    <a href="signin.html">Sign Up/</a>
+                    <a href="Login.html">Sign In</a>
                 </div>
             </div>
-        </div>
-        <div class="col-md-3 mb-4">
-            <div class="card h-100">
-                <img src="/images/headphones.jpg" class="card-img-top" alt="Headphones">
-                <div class="card-body">
-                    <h5 class="card-title">Sony WH-1000XM5</h5>
-                    <p class="card-text text-success fw-bold">$349</p>
-                    <a href="/Product/Details/2" class="btn btn-primary w-100">عرض التفاصيل</a>
-                </div>
+
+            <div class="cart">
+                <i class="fas fa-shopping-cart"></i>
+                <a href="#">Cart</a>
             </div>
         </div>
-        <!-- ضيف منتجات زي ما تحب -->
-    </div>
-</div>
+    </header>
 
-<!-- فوتر -->
-<footer class="bg-dark text-white text-center py-3 mt-5">
-    <p>&copy; 2025 E-Store. جميع الحقوق محفوظة.</p>
-</footer>
+</body>
+</html>

@@ -1,0 +1,105 @@
+﻿/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Header Styles */
+.header {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 80px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.10);
+    text-align: center;
+    align-items: center;
+}
+
+    .header h1 {
+        margin-left: 5%;
+        color: rgb(58, 168, 214);
+        margin-right: 10%;
+    }
+
+/* Search Bar Styles */
+.SearchBar {
+    width: 500px;
+    position: relative;
+}
+
+    .SearchBar i {
+        position: absolute;
+        left: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: white;
+    }
+
+    .SearchBar input {
+        border: hidden;
+        border-style: hidden;
+        width: 400px;
+        height: 35px;
+        background-color: rgba(58, 168, 214, 0.5);
+        border-radius: 5px;
+        padding-left: 35px;
+    }
+
+/* Navigation Links */
+.links {
+    display: flex;
+    flex-direction: row;
+}
+
+    .links a {
+        text-decoration: none;
+        color: gray;
+    }
+
+/* Container Styles */
+.container {
+    display: flex;
+    flex-direction: row;
+    width: 500px;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+/* Register Section */
+.register {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+}
+
+    .register i {
+        font-size: 24px;
+        color: gray;
+    }
+
+/* Cart Styles */
+.cart {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+    border-style: solid;
+    border-width: 0px 0px 0px 5px;
+    border-color: rgb(58, 168, 214);
+    border-radius: 3px;
+}
+
+    .cart i {
+        font-size: 24px;
+        color: gray;
+        padding-left: 20px;
+    }
+
+    .cart a {
+        text-decoration: none;
+        color: gray;
+    }
