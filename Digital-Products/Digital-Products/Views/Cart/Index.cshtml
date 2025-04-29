@@ -1,0 +1,43 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model List<Digital_Products.Models.CartItem>
+
+<h1 class="mb-4">سلة الشراء</h1>
+
+@if (!Model.Any())
+{
+    <p>سلة الشراء فارغة.</p>
+}
+else
+{
+    <table class="table table-bordered">
+        <thead class="table-dark">
+            <tr>
+                <th>اسم المنتج</th>
+                <th>الكمية</th>
+                <th>السعر</th>
+                <th>الإجمالي</th>
+                <th>حذف</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Product.Name</td>
+                    <td>@item.Quantity</td>
+                    <td>@item.Product.Price.ToString("C")</td>
+                    <td>@(item.Product.Price * item.Quantity).ToString("C")</td>
+                    <td>
+                        <a href="/Cart/Remove/@item.Id" class="btn btn-danger btn-sm">حذف</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <a href="/Order/Checkout" class="btn btn-success">اتمام الشراء</a>
+}

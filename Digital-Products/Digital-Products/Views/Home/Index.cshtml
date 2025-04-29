@@ -22,14 +22,14 @@
             <div class="register">
                 <i class="fas fa-user"></i>
                 <div class="links">
-                    <a href="signin.html">Sign Up/</a>
-                    <a href="Login.html">Sign In</a>
+                    <<a asp-controller="Account" asp-action="SignUp">SignUp/</a>
+                    <a asp-controller="Account" asp-action="SignIn">SignIn</a>
                 </div>
             </div>
 
             <div class="cart">
                 <i class="fas fa-shopping-cart"></i>
-                <a href="#">Cart</a>
+                <a asp-controller="Cart" asp-action="details">Cart</a>
             </div>
         </div>
     </header>

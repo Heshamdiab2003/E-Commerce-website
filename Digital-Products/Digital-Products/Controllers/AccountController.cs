@@ -17,10 +17,10 @@ namespace Digital_Products.Controllers
         }
 
         [HttpGet]
-        public IActionResult Register() => View();
+        public IActionResult SignUp() => View();
 
         [HttpPost]
-        public IActionResult Register(User user)
+        public IActionResult SignUp(User user)
         {
             // Check if email already exists
             if (_context.Users.Any(u => u.Email == user.Email))
@@ -42,10 +42,10 @@ namespace Digital_Products.Controllers
         }
 
         [HttpGet]
-        public IActionResult Login() => View();
+        public IActionResult SignIn() => View();
 
         [HttpPost]
-        public async Task<IActionResult> Login(User user)
+        public async Task<IActionResult> SignIn(User user)
         {
             var existingUser = _context.Users
                 .FirstOrDefault(u => u.Email == user.Email && u.PasswordHash == user.PasswordHash);

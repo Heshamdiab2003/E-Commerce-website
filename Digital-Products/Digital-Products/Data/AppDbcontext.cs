@@ -32,12 +32,12 @@ namespace Digital_Products.Data
 
 
         public DbSet<User> Users { get; set; }
-        DbSet<Product> Products { get; set; }
-        DbSet<Order> Orders { get; set; }
-        DbSet<Payment> Payments { get; set; }
-        DbSet<Category> Categories { get; set; }
-        DbSet<ShippingInfo> ShippingInfos { get; set; }
-        DbSet<CartItem> CartItems { get; set; } 
+        public DbSet<Product> Products { get; set; }
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<Payment> Payments { get; set; }
+        public DbSet<Category> Categories { get; set; }
+        public DbSet<ShippingInfo> ShippingInfos { get; set; }
+        public DbSet<CartItem> CartItems { get; set; } 
 
 
     }
