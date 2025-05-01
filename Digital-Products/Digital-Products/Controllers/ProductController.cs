@@ -14,7 +14,7 @@ namespace Digital_Products.Controllers
             _context = context;
         }
 
-        // عرض كل المنتجات
+ 
         public async Task<IActionResult> Index()
         {
             var products = await _context.Products.Include(p => p.Category).ToListAsync();
@@ -36,7 +36,7 @@ namespace Digital_Products.Controllers
             return View(product);
         }
 
-        // بحث عن منتج
+   
         public async Task<IActionResult> Search(string query)
         {
             var products = await _context.Products

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "cBvCG8Y1ATgy0idCRLc+IDU+FhPvsRBXsr1Q4l9/uzE=",
+  "Hash": "Ohdx84o9rK/XTpetyxMjgFQ1cFnm59TP+HZtFaXms00=",
   "Source": "Digital-Products",
   "BasePath": "_content/Digital-Products",
   "Mode": "Default",
@@ -73,11 +73,32 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "ad3xbn9xqi",
-      "Integrity": "TgbGrm4msD98eIc7mYToTVJvFOqShdWk0zQtXe1XI7w=",
+      "Fingerprint": "88jh59ds4o",
+      "Integrity": "mDSjBGOgWNUu0WH5Z/XPql/exjJnYYN6t1IwquGYaTI=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\Cart.css"
+    },
+    {
+      "Identity": "D:\\Depi Project\\Digital-Products\\Digital-Products\\wwwroot\\css\\Category.css",
+      "SourceId": "Digital-Products",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Depi Project\\Digital-Products\\Digital-Products\\wwwroot\\",
+      "BasePath": "_content/Digital-Products",
+      "RelativePath": "css/Category#[.{fingerprint}]?.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "ly6z86zjd0",
+      "Integrity": "/d0gCILpillvg37KHr6cpF43l/Wxos/G1nRjBZ+f+/o=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\Category.css"
     },
     {
       "Identity": "D:\\Depi Project\\Digital-Products\\Digital-Products\\wwwroot\\css\\Login.css",
@@ -183,6 +204,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "D:\\Depi Project\\Digital-Products\\Digital-Products\\wwwroot\\Images\\Categories\\Screenshot 2025-05-01 191002.png",
+      "SourceId": "Digital-Products",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Depi Project\\Digital-Products\\Digital-Products\\wwwroot\\",
+      "BasePath": "_content/Digital-Products",
+      "RelativePath": "Images/Categories/Screenshot 2025-05-01 191002#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "9ufu7sw4qt",
+      "Integrity": "sQLslXt3SLB6aF0Dmj3k3aeSv+rQSAe5guFqUFIfESw=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\Categories\\Screenshot 2025-05-01 191002.png"
     },
     {
       "Identity": "D:\\Depi Project\\Digital-Products\\Digital-Products\\wwwroot\\js\\Cart.js",
@@ -1426,7 +1468,7 @@
   ],
   "Endpoints": [
     {
-      "Route": "css/Cart.ad3xbn9xqi.css",
+      "Route": "css/Cart.88jh59ds4o.css",
       "AssetFile": "D:\\Depi Project\\Digital-Products\\Digital-Products\\wwwroot\\css\\Cart.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -1436,7 +1478,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "2491"
+          "Value": "4554"
         },
         {
           "Name": "Content-Type",
@@ -1444,11 +1486,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"TgbGrm4msD98eIc7mYToTVJvFOqShdWk0zQtXe1XI7w=\""
+          "Value": "\"mDSjBGOgWNUu0WH5Z/XPql/exjJnYYN6t1IwquGYaTI=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 30 Apr 2025 12:44:03 GMT"
+          "Value": "Thu, 01 May 2025 13:16:13 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1458,7 +1500,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "ad3xbn9xqi"
+          "Value": "88jh59ds4o"
         },
         {
           "Name": "label",
@@ -1466,7 +1508,7 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-TgbGrm4msD98eIc7mYToTVJvFOqShdWk0zQtXe1XI7w="
+          "Value": "sha256-mDSjBGOgWNUu0WH5Z/XPql/exjJnYYN6t1IwquGYaTI="
         }
       ]
     },
@@ -1481,7 +1523,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "2491"
+          "Value": "4554"
         },
         {
           "Name": "Content-Type",
@@ -1489,11 +1531,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"TgbGrm4msD98eIc7mYToTVJvFOqShdWk0zQtXe1XI7w=\""
+          "Value": "\"mDSjBGOgWNUu0WH5Z/XPql/exjJnYYN6t1IwquGYaTI=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 30 Apr 2025 12:44:03 GMT"
+          "Value": "Thu, 01 May 2025 13:16:13 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1503,7 +1545,89 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-TgbGrm4msD98eIc7mYToTVJvFOqShdWk0zQtXe1XI7w="
+          "Value": "sha256-mDSjBGOgWNUu0WH5Z/XPql/exjJnYYN6t1IwquGYaTI="
+        }
+      ]
+    },
+    {
+      "Route": "css/Category.css",
+      "AssetFile": "D:\\Depi Project\\Digital-Products\\Digital-Products\\wwwroot\\css\\Category.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "3783"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"/d0gCILpillvg37KHr6cpF43l/Wxos/G1nRjBZ+f+/o=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 01 May 2025 13:11:19 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-/d0gCILpillvg37KHr6cpF43l/Wxos/G1nRjBZ+f+/o="
+        }
+      ]
+    },
+    {
+      "Route": "css/Category.ly6z86zjd0.css",
+      "AssetFile": "D:\\Depi Project\\Digital-Products\\Digital-Products\\wwwroot\\css\\Category.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "3783"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"/d0gCILpillvg37KHr6cpF43l/Wxos/G1nRjBZ+f+/o=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 01 May 2025 13:11:19 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "ly6z86zjd0"
+        },
+        {
+          "Name": "label",
+          "Value": "css/Category.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-/d0gCILpillvg37KHr6cpF43l/Wxos/G1nRjBZ+f+/o="
         }
       ]
     },
@@ -2078,6 +2202,88 @@
         {
           "Name": "integrity",
           "Value": "sha256-Jtxf9L+5ITKRc1gIRl4VbUpGkRNfOBXjYTdhJD4facM="
+        }
+      ]
+    },
+    {
+      "Route": "Images/Categories/Screenshot 2025-05-01 191002.9ufu7sw4qt.png",
+      "AssetFile": "D:\\Depi Project\\Digital-Products\\Digital-Products\\wwwroot\\Images\\Categories\\Screenshot 2025-05-01 191002.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "249"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"sQLslXt3SLB6aF0Dmj3k3aeSv+rQSAe5guFqUFIfESw=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 01 May 2025 16:10:02 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "9ufu7sw4qt"
+        },
+        {
+          "Name": "label",
+          "Value": "Images/Categories/Screenshot 2025-05-01 191002.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-sQLslXt3SLB6aF0Dmj3k3aeSv+rQSAe5guFqUFIfESw="
+        }
+      ]
+    },
+    {
+      "Route": "Images/Categories/Screenshot 2025-05-01 191002.png",
+      "AssetFile": "D:\\Depi Project\\Digital-Products\\Digital-Products\\wwwroot\\Images\\Categories\\Screenshot 2025-05-01 191002.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "249"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"sQLslXt3SLB6aF0Dmj3k3aeSv+rQSAe5guFqUFIfESw=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 01 May 2025 16:10:02 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-sQLslXt3SLB6aF0Dmj3k3aeSv+rQSAe5guFqUFIfESw="
         }
       ]
     },

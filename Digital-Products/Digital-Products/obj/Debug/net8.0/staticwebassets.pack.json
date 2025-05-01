@@ -5,8 +5,16 @@
       "PackagePath": "staticwebassets\\Digital-Products.2yq72d3zca.bundle.scp.css"
     },
     {
+      "Id": "D:\\Depi Project\\Digital-Products\\Digital-Products\\wwwroot\\Images\\Categories\\Screenshot 2025-05-01 191002.png",
+      "PackagePath": "staticwebassets\\Images\\Categories\\Screenshot 2025-05-01 191002.png"
+    },
+    {
       "Id": "D:\\Depi Project\\Digital-Products\\Digital-Products\\wwwroot\\css\\Cart.css",
       "PackagePath": "staticwebassets\\css\\Cart.css"
+    },
+    {
+      "Id": "D:\\Depi Project\\Digital-Products\\Digital-Products\\wwwroot\\css\\Category.css",
+      "PackagePath": "staticwebassets\\css\\Category.css"
     },
     {
       "Id": "D:\\Depi Project\\Digital-Products\\Digital-Products\\wwwroot\\css\\Login.css",

@@ -22,7 +22,7 @@ namespace Digital_Products.Controllers
         [HttpPost]
         public IActionResult SignUp(User user)
         {
-            // Check if email already exists
+            
             if (_context.Users.Any(u => u.Email == user.Email))
             {
                 ModelState.AddModelError("Email", "This email is already registered.");

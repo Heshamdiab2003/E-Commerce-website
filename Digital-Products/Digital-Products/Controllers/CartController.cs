@@ -3,8 +3,8 @@
     using Digital_Products.Models;
 
 
-     using global::Digital_Products.Data;
-    using global::Digital_Products.Models;
+     using Digital_Products.Data;
+    using Digital_Products.Models;
 
     namespace Digital_Products.Controllers
     {

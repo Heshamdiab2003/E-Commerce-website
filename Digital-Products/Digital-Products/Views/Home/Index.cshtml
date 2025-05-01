@@ -1,7 +1,7 @@
 ﻿@{
     Layout = null;
 }
-
+@model List<Digital_Products.Models.Category>
 <!DOCTYPE html>
 <html>
 <head>
@@ -37,14 +37,14 @@
     </header>
 
     <nav class="main-nav">
-        <button class="nav-btn">Groceries</button>
-        <button class="nav-btn">Premium Fruits</button>
-        <button class="nav-btn">Home & Kitchen</button>
-        <button class="nav-btn">Fashion</button>
+        <button class="nav-btn">Gaming</button>
+        <button class="nav-btn">Laptops</button>
+        <button class="nav-btn">Accessories</button>
+        <button class="nav-btn">Phones</button>
         <button class="nav-btn">Electronics</button>
-        <button class="nav-btn">Beauty</button>
-        <button class="nav-btn">Home Improvement</button>
-        <button class="nav-btn">Sports, Toys & Luggage</button>
+        <button class="nav-btn">PC</button>
+        <button class="nav-btn">Cables</button>
+        <button class="nav-btn">Monitors</button>
     </nav>
 
     <section class="banner-section">
@@ -79,28 +79,45 @@
                 <div class="deal-info">
                     <div class="deal-title">Galaxy S22 Ultra</div>
                     <div class="deal-prices">
-                        <span class="deal-price">₹32999</span>
-                        <span class="deal-old">₹74999</span>
+                        <span class="deal-price">32999</span>
+                        <span class="deal-old">74999</span>
                     </div>
-                    <div class="deal-save">Save - ₹32999</div>
+                    <div class="deal-save">Save - 32999</div>
                 </div>
             </div>
-            <!-- كرر باقي الكروت بنفس الشكل وغير الصور إلى src="~/images/img2.jpg" وهكذا -->
         </div>
     </section>
 
     <section class="categories-section">
         <div class="categories-header">
             <h2>Shop From <span>Top Categories</span></h2>
-            <a href="#">View All &rarr;</a>
+            <a asp-controller="Category" asp-action="Index">View All &rarr;</a>
         </div>
+
         <div class="categories-list">
-            <div class="category-item">
-                <div class="category-img"><img src="~/images/mobile.jpg" alt="Mobile" /></div>
-                <div class="category-title">Mobile</div>
-            </div>
-            <!-- كرر باقي التصنيفات بنفس الطريقة -->
+            @if (Model != null && Model.Any())
+            {
+                foreach (var category in Model)
+                {
+                    <div class="category-item">
+                        <div class="category-img">
+                            <img src="@category.ImagePath" alt="@category.Name" />
+
+                        </div>
+                        <div class="category-title">@category.Name</div>
+                    </div>
+                }
+            }
+            else
+            {
+                <p>لا توجد فئات لعرضها.</p>
+            }
+
+           
+            
+            
         </div>
+        
     </section>
 
     <section class="brands-section">
@@ -114,8 +131,9 @@
                 <img src="~/images/apple-phone.jpg" alt="iPhone" />
                 <div class="brand-offer">UP to 80% OFF</div>
             </div>
-            <!-- كرر باقي البراندات -->
         </div>
     </section>
+   
+    
 </body>
 </html>

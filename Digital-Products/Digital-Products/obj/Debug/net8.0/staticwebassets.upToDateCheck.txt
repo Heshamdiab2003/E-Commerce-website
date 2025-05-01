@@ -1,9 +1,11 @@
 wwwroot\css\Cart.css
+wwwroot\css\Category.css
 wwwroot\css\Login.css
 wwwroot\css\signin.css
 wwwroot\css\site.css
 wwwroot\css\Style.css
 wwwroot\favicon.ico
+wwwroot\Images\Categories\Screenshot 2025-05-01 191002.png
 wwwroot\js\Cart.js
 wwwroot\js\site.js
 wwwroot\lib\bootstrap\dist\css\bootstrap.css

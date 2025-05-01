@@ -19,6 +19,8 @@ namespace Digital_Products.Controllers
             return View(orders);
         }
 
+
+
         public IActionResult Details(int id)
         {
             var order = _context.Orders.Find(id);
@@ -30,10 +32,14 @@ namespace Digital_Products.Controllers
             return View(order);
         }
 
+
+
         public IActionResult Create()
         {
             return View();
         }
+
+
 
         [HttpPost]
         public IActionResult Create(Order order)
