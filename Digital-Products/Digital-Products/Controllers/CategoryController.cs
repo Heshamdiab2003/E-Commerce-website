@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Digital_Products.Models;
 using Digital_Products.Data;
+using System.Linq;
 
 namespace Digital_Products.Controllers
 {
@@ -13,28 +14,11 @@ namespace Digital_Products.Controllers
             _context = context;
         }
 
+        // عرض كل الكاتيجورز
         public IActionResult Index()
         {
-            var categories = _context.Categories.ToList();
-            return View(categories);
-        }
-
-        public IActionResult Create()
-        {
-            return View();
-        }
-
-        [HttpPost]
-        public IActionResult Create(Category category)
-        {
-            if (ModelState.IsValid)
-            {
-                _context.Categories.Add(category);
-                _context.SaveChanges();
-                return RedirectToAction("Index");
-            }
-
-            return View(category);
+            var categories = _context.Categories.ToList(); // استرجاع كل الكاتيجوريات
+            return View(categories); // عرضها في الفيو
         }
     }
 }

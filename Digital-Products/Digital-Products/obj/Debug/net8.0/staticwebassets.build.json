@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "/580xg+AcQttsoJJCSnHV8AOXEsaKl/urm/uPelADx8=",
+  "Hash": "cBvCG8Y1ATgy0idCRLc+IDU+FhPvsRBXsr1Q4l9/uzE=",
   "Source": "Digital-Products",
   "BasePath": "_content/Digital-Products",
   "Mode": "Default",
@@ -57,6 +57,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "D:\\Depi Project\\Digital-Products\\Digital-Products\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\Digital-Products.bundle.scp.css"
+    },
+    {
+      "Identity": "D:\\Depi Project\\Digital-Products\\Digital-Products\\wwwroot\\css\\Cart.css",
+      "SourceId": "Digital-Products",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Depi Project\\Digital-Products\\Digital-Products\\wwwroot\\",
+      "BasePath": "_content/Digital-Products",
+      "RelativePath": "css/Cart#[.{fingerprint}]?.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "ad3xbn9xqi",
+      "Integrity": "TgbGrm4msD98eIc7mYToTVJvFOqShdWk0zQtXe1XI7w=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\Cart.css"
     },
     {
       "Identity": "D:\\Depi Project\\Digital-Products\\Digital-Products\\wwwroot\\css\\Login.css",
@@ -136,8 +157,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "4t95u9ddz8",
-      "Integrity": "GI07sIaoVkHXdmnNbYllTsnFe7J7neR+8Sm9euyQhtE=",
+      "Fingerprint": "kvgbyt4nu4",
+      "Integrity": "MCDGk234yYd7pmICk/MKvrcWWjURip0rUxA69NxShXw=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\Style.css"
@@ -162,6 +183,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "D:\\Depi Project\\Digital-Products\\Digital-Products\\wwwroot\\js\\Cart.js",
+      "SourceId": "Digital-Products",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Depi Project\\Digital-Products\\Digital-Products\\wwwroot\\",
+      "BasePath": "_content/Digital-Products",
+      "RelativePath": "js/Cart#[.{fingerprint}]?.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "cvbu78b8zp",
+      "Integrity": "aDED8kN0tqHxDJ6TrkpIuDLInqtqHnF3MB9w/XlCfCk=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\Cart.js"
     },
     {
       "Identity": "D:\\Depi Project\\Digital-Products\\Digital-Products\\wwwroot\\js\\site.js",
@@ -1384,6 +1426,88 @@
   ],
   "Endpoints": [
     {
+      "Route": "css/Cart.ad3xbn9xqi.css",
+      "AssetFile": "D:\\Depi Project\\Digital-Products\\Digital-Products\\wwwroot\\css\\Cart.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2491"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"TgbGrm4msD98eIc7mYToTVJvFOqShdWk0zQtXe1XI7w=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 30 Apr 2025 12:44:03 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "ad3xbn9xqi"
+        },
+        {
+          "Name": "label",
+          "Value": "css/Cart.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-TgbGrm4msD98eIc7mYToTVJvFOqShdWk0zQtXe1XI7w="
+        }
+      ]
+    },
+    {
+      "Route": "css/Cart.css",
+      "AssetFile": "D:\\Depi Project\\Digital-Products\\Digital-Products\\wwwroot\\css\\Cart.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2491"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"TgbGrm4msD98eIc7mYToTVJvFOqShdWk0zQtXe1XI7w=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 30 Apr 2025 12:44:03 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-TgbGrm4msD98eIc7mYToTVJvFOqShdWk0zQtXe1XI7w="
+        }
+      ]
+    },
+    {
       "Route": "css/Login.css",
       "AssetFile": "D:\\Depi Project\\Digital-Products\\Digital-Products\\wwwroot\\css\\Login.css",
       "Selectors": [],
@@ -1630,51 +1754,6 @@
       ]
     },
     {
-      "Route": "css/Style.4t95u9ddz8.css",
-      "AssetFile": "D:\\Depi Project\\Digital-Products\\Digital-Products\\wwwroot\\css\\Style.css",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "1942"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"GI07sIaoVkHXdmnNbYllTsnFe7J7neR+8Sm9euyQhtE=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Tue, 29 Apr 2025 13:21:54 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "4t95u9ddz8"
-        },
-        {
-          "Name": "label",
-          "Value": "css/Style.css"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-GI07sIaoVkHXdmnNbYllTsnFe7J7neR+8Sm9euyQhtE="
-        }
-      ]
-    },
-    {
       "Route": "css/Style.css",
       "AssetFile": "D:\\Depi Project\\Digital-Products\\Digital-Products\\wwwroot\\css\\Style.css",
       "Selectors": [],
@@ -1685,7 +1764,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1942"
+          "Value": "11878"
         },
         {
           "Name": "Content-Type",
@@ -1693,11 +1772,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"GI07sIaoVkHXdmnNbYllTsnFe7J7neR+8Sm9euyQhtE=\""
+          "Value": "\"MCDGk234yYd7pmICk/MKvrcWWjURip0rUxA69NxShXw=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 29 Apr 2025 13:21:54 GMT"
+          "Value": "Wed, 30 Apr 2025 15:03:16 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1707,7 +1786,52 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-GI07sIaoVkHXdmnNbYllTsnFe7J7neR+8Sm9euyQhtE="
+          "Value": "sha256-MCDGk234yYd7pmICk/MKvrcWWjURip0rUxA69NxShXw="
+        }
+      ]
+    },
+    {
+      "Route": "css/Style.kvgbyt4nu4.css",
+      "AssetFile": "D:\\Depi Project\\Digital-Products\\Digital-Products\\wwwroot\\css\\Style.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "11878"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"MCDGk234yYd7pmICk/MKvrcWWjURip0rUxA69NxShXw=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 30 Apr 2025 15:03:16 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "kvgbyt4nu4"
+        },
+        {
+          "Name": "label",
+          "Value": "css/Style.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-MCDGk234yYd7pmICk/MKvrcWWjURip0rUxA69NxShXw="
         }
       ]
     },
@@ -1954,6 +2078,88 @@
         {
           "Name": "integrity",
           "Value": "sha256-Jtxf9L+5ITKRc1gIRl4VbUpGkRNfOBXjYTdhJD4facM="
+        }
+      ]
+    },
+    {
+      "Route": "js/Cart.cvbu78b8zp.js",
+      "AssetFile": "D:\\Depi Project\\Digital-Products\\Digital-Products\\wwwroot\\js\\Cart.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "3383"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"aDED8kN0tqHxDJ6TrkpIuDLInqtqHnF3MB9w/XlCfCk=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 30 Apr 2025 14:08:40 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "cvbu78b8zp"
+        },
+        {
+          "Name": "label",
+          "Value": "js/Cart.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-aDED8kN0tqHxDJ6TrkpIuDLInqtqHnF3MB9w/XlCfCk="
+        }
+      ]
+    },
+    {
+      "Route": "js/Cart.js",
+      "AssetFile": "D:\\Depi Project\\Digital-Products\\Digital-Products\\wwwroot\\js\\Cart.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "3383"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"aDED8kN0tqHxDJ6TrkpIuDLInqtqHnF3MB9w/XlCfCk=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 30 Apr 2025 14:08:40 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-aDED8kN0tqHxDJ6TrkpIuDLInqtqHnF3MB9w/XlCfCk="
         }
       ]
     },

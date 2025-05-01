@@ -1,43 +1,60 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model List<Digital_Products.Models.CartItem>
 @{
+    Layout = null;
 }
-@model List<Digital_Products.Models.CartItem>
 
-<h1 class="mb-4">سلة الشراء</h1>
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="utf-8" />
+    <title>عربة التسوق</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="~/css/cart.css" />
+    <script src="~/js/cart.js" defer></script>
+</head>
+<body>
+    <div class="cart-container">
+        <h2 class="cart-title">عربة التسوق</h2>
 
-@if (!Model.Any())
-{
-    <p>سلة الشراء فارغة.</p>
-}
-else
-{
-    <table class="table table-bordered">
-        <thead class="table-dark">
-            <tr>
-                <th>اسم المنتج</th>
-                <th>الكمية</th>
-                <th>السعر</th>
-                <th>الإجمالي</th>
-                <th>حذف</th>
-            </tr>
-        </thead>
-        <tbody>
+        <div class="cart-items">
             @foreach (var item in Model)
             {
-                <tr>
-                    <td>@item.Product.Name</td>
-                    <td>@item.Quantity</td>
-                    <td>@item.Product.Price.ToString("C")</td>
-                    <td>@(item.Product.Price * item.Quantity).ToString("C")</td>
-                    <td>
-                        <a href="/Cart/Remove/@item.Id" class="btn btn-danger btn-sm">حذف</a>
-                    </td>
-                </tr>
+                <div class="cart-item" data-id="@item.Id">
+                    <img src="@item.Product.ImageUrl" alt="@item.Product.Name" class="cart-item-img" />
+                    <div class="cart-item-details">
+                        <div class="cart-item-title">@item.Product.Name</div>
+                        <div class="cart-item-desc">@item.Product.Description</div>
+                        <div class="cart-item-actions">
+                            <span class="cart-item-status">متوفر</span>
+                            <span class="cart-item-action-link">مشاركة</span>
+                            <span class="cart-item-action-link">حفظ لوقت لاحق</span>
+                            <span class="cart-item-action-link" data-action="remove">حذف</span>
+                        </div>
+                    </div>
+                    <div class="cart-item-qty-price">
+                        <div class="cart-item-qty">
+                            <button class="qty-btn">+</button>
+                            <span class="qty-value">@item.Quantity</span>
+                            <button class="qty-btn">-</button>
+                        </div>
+                        <div class="cart-item-price">@item.Product.Price.ToString("0.00") جنيه</div>
+                        <form asp-action="RemoveFromCart" asp-route-id="@item.Id" method="post">
+                            <button type="submit" class="remove-btn" title="حذف المنتج">🗑️</button>
+                        </form>
+                    </div>
+                </div>
             }
-        </tbody>
-    </table>
+        </div>
 
-    <a href="/Order/Checkout" class="btn btn-success">اتمام الشراء</a>
-}
+        <div class="cart-summary">
+            <div class="cart-summary-details">
+                <span>الإجمالي الفرعي (@Model.Sum(i => i.Quantity) من السلع):</span>
+                <span class="cart-summary-total">
+                    @(Model.Sum(i => i.Quantity * i.Product.Price).ToString("0.00")) جنيه
+                </span>
+            </div>
+            <button class="checkout-btn">الانتقال لإتمام الشراء</button>
+        </div>
+    </div>
+</body>
+</html>

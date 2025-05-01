@@ -1,38 +1,121 @@
 ﻿@{
     Layout = null;
 }
+
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="~/css/Style.css">
+    <link rel="stylesheet" href="~/css/Style.css" />
     <!-- Font Awesome CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
     <header class="header">
-        <h1>DigitalMart</h1>
+        <div class="header-left">
+            <i class="fas fa-bars menu-icon"></i>
+            <h1 class="logo">MegaMart</h1>
+        </div>
         <div class="SearchBar">
             <i class="fas fa-search"></i>
-            <input type="search" placeholder="search">
+            <input type="search" placeholder="Search essentials, groceries and more...">
         </div>
         <div class="container">
             <div class="register">
                 <i class="fas fa-user"></i>
                 <div class="links">
-                    <<a asp-controller="Account" asp-action="SignUp">SignUp/</a>
-                    <a asp-controller="Account" asp-action="SignIn">SignIn</a>
+                    <a asp-controller="Account" asp-action="SignUp">Sign Up/</a>
+                    <a asp-controller="Account" asp-action="SignIn">Sign In</a>
                 </div>
             </div>
-
             <div class="cart">
                 <i class="fas fa-shopping-cart"></i>
-                <a asp-controller="Cart" asp-action="details">Cart</a>
+                <a asp-controller="Cart" asp-action="Index">Cart</a>
             </div>
         </div>
     </header>
 
+    <nav class="main-nav">
+        <button class="nav-btn">Groceries</button>
+        <button class="nav-btn">Premium Fruits</button>
+        <button class="nav-btn">Home & Kitchen</button>
+        <button class="nav-btn">Fashion</button>
+        <button class="nav-btn">Electronics</button>
+        <button class="nav-btn">Beauty</button>
+        <button class="nav-btn">Home Improvement</button>
+        <button class="nav-btn">Sports, Toys & Luggage</button>
+    </nav>
+
+    <section class="banner-section">
+        <button class="arrow left">❮</button>
+        <div class="banner-content">
+            <div class="banner-text">
+                <div class="banner-offer">Best Deal Online on smart watches</div>
+                <h2>SMART WEARABLE.</h2>
+                <div class="banner-sub">UP to 80% OFF</div>
+                <div class="dots">
+                    <span class="active"></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+            <div class="banner-img">
+                <img src="https://m.media-amazon.com/images/I/71l2rGZ3pZL._AC_SX679_.jpg" alt="Smart Watch" />
+            </div>
+        </div>
+        <button class="arrow right">❯</button>
+    </section>
+
+    <section class="deals-section">
+        <div class="deals-header">
+            <h2>Grab the best deal on <span>Smartphones</span></h2>
+            <a href="#">View All &rarr;</a>
+        </div>
+        <div class="deals-cards">
+            <div class="deal-card">
+                <div class="discount-badge">56% OFF</div>
+                <img src="~/images/img1.jpg" alt="Galaxy S22 Ultra" />
+                <div class="deal-info">
+                    <div class="deal-title">Galaxy S22 Ultra</div>
+                    <div class="deal-prices">
+                        <span class="deal-price">₹32999</span>
+                        <span class="deal-old">₹74999</span>
+                    </div>
+                    <div class="deal-save">Save - ₹32999</div>
+                </div>
+            </div>
+            <!-- كرر باقي الكروت بنفس الشكل وغير الصور إلى src="~/images/img2.jpg" وهكذا -->
+        </div>
+    </section>
+
+    <section class="categories-section">
+        <div class="categories-header">
+            <h2>Shop From <span>Top Categories</span></h2>
+            <a href="#">View All &rarr;</a>
+        </div>
+        <div class="categories-list">
+            <div class="category-item">
+                <div class="category-img"><img src="~/images/mobile.jpg" alt="Mobile" /></div>
+                <div class="category-title">Mobile</div>
+            </div>
+            <!-- كرر باقي التصنيفات بنفس الطريقة -->
+        </div>
+    </section>
+
+    <section class="brands-section">
+        <div class="brands-header">
+            <h2>Top <span>Electronics Brands</span></h2>
+            <a href="#">View All &rarr;</a>
+        </div>
+        <div class="brands-cards">
+            <div class="brand-card apple">
+                <div class="brand-label">IPHONE</div>
+                <img src="~/images/apple-phone.jpg" alt="iPhone" />
+                <div class="brand-offer">UP to 80% OFF</div>
+            </div>
+            <!-- كرر باقي البراندات -->
+        </div>
+    </section>
 </body>
 </html>

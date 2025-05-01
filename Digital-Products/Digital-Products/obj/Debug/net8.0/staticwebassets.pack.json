@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets\\Digital-Products.2yq72d3zca.bundle.scp.css"
     },
     {
+      "Id": "D:\\Depi Project\\Digital-Products\\Digital-Products\\wwwroot\\css\\Cart.css",
+      "PackagePath": "staticwebassets\\css\\Cart.css"
+    },
+    {
       "Id": "D:\\Depi Project\\Digital-Products\\Digital-Products\\wwwroot\\css\\Login.css",
       "PackagePath": "staticwebassets\\css\\Login.css"
     },
@@ -23,6 +27,10 @@
     {
       "Id": "D:\\Depi Project\\Digital-Products\\Digital-Products\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "D:\\Depi Project\\Digital-Products\\Digital-Products\\wwwroot\\js\\Cart.js",
+      "PackagePath": "staticwebassets\\js\\Cart.js"
     },
     {
       "Id": "D:\\Depi Project\\Digital-Products\\Digital-Products\\wwwroot\\js\\site.js",

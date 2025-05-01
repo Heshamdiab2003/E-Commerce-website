@@ -164,10 +164,10 @@ D:\Depi Project\Digital-Products\Digital-Products\obj\Debug\net8.0\staticwebasse
 D:\Depi Project\Digital-Products\Digital-Products\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.Digital-Products.props
 D:\Depi Project\Digital-Products\Digital-Products\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.Digital-Products.props
 D:\Depi Project\Digital-Products\Digital-Products\obj\Debug\net8.0\staticwebassets.pack.json
-D:\Depi Project\Digital-Products\Digital-Products\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 D:\Depi Project\Digital-Products\Digital-Products\obj\Debug\net8.0\Digital-.4E826AD7.Up2Date
 D:\Depi Project\Digital-Products\Digital-Products\obj\Debug\net8.0\Digital-Products.dll
 D:\Depi Project\Digital-Products\Digital-Products\obj\Debug\net8.0\refint\Digital-Products.dll
 D:\Depi Project\Digital-Products\Digital-Products\obj\Debug\net8.0\Digital-Products.pdb
 D:\Depi Project\Digital-Products\Digital-Products\obj\Debug\net8.0\Digital-Products.genruntimeconfig.cache
 D:\Depi Project\Digital-Products\Digital-Products\obj\Debug\net8.0\ref\Digital-Products.dll
+D:\Depi Project\Digital-Products\Digital-Products\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
