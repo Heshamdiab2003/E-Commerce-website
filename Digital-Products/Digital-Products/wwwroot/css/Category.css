@@ -157,6 +157,8 @@ body {
     font-weight: 500;
 }
 
+
+
 @media (max-width: 768px) {
     .search-filter {
         flex-direction: column;

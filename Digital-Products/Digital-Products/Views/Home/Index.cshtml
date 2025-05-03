@@ -25,8 +25,16 @@
             <div class="register">
                 <i class="fas fa-user"></i>
                 <div class="links">
-                    <a asp-controller="Account" asp-action="SignUp">Sign Up/</a>
-                    <a asp-controller="Account" asp-action="SignIn">Sign In</a>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <span>Welcome, @User.Identity.Name!</span>
+                        <a href="@Url.Action("SignOut", "Account")">Sign Out</a> <!-- رابط تسجيل الخروج -->
+                    }
+                    else
+                    {
+                        <a asp-controller="Account" asp-action="SignUp">Sign Up/</a>
+                        <a asp-controller="Account" asp-action="SignIn">Sign In</a>
+                    }
                 </div>
             </div>
             <div class="cart">
@@ -102,7 +110,6 @@
                     <div class="category-item">
                         <div class="category-img">
                             <img src="@category.ImagePath" alt="@category.Name" />
-
                         </div>
                         <div class="category-title">@category.Name</div>
                     </div>
@@ -112,12 +119,7 @@
             {
                 <p>لا توجد فئات لعرضها.</p>
             }
-
-           
-            
-            
         </div>
-        
     </section>
 
     <section class="brands-section">
@@ -133,7 +135,5 @@
             </div>
         </div>
     </section>
-   
-    
 </body>
 </html>

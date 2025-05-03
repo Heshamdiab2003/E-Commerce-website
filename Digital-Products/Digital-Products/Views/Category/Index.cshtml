@@ -16,28 +16,33 @@
     <div class="category-page">
         <header class="category-header">
             <h1>All Categories</h1>
+
+           
+                <div class="actions">
+                    <a href="/Category/Create" class="add-btn">
+                        <i class="fas fa-plus"></i> New Category
+                    </a>
+                </div>
+            
+
+
+
             <div class="search-filter">
                 <div class="search-box">
                     <i class="fas fa-search"></i>
                     <input type="text" placeholder="Search categories...">
                 </div>
-                <div class="filter-options">
-                    <select>
-                        <option value="">Sort by</option>
-                        <option value="popular">Most Popular</option>
-                        <option value="newest">Newest</option>
-                        <option value="name">Name</option>
-                    </select>
-                </div>
             </div>
         </header>
+
 
         <main class="categories-grid">
             @foreach (var category in Model)
             {
                 <div class="category-card">
                     <div class="category-icon">
-                        <img src="@category.ImagePath" alt="@category.Name" />
+                        <img src="@category.ImagePath" asp-append-version="true" alt="@category.Name" />
+                        
                     </div>
                     <h3>@category.Name</h3>
                     <p>Category Description</p>

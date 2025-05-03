@@ -1,5 +1,6 @@
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Digital_Products.Data;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 namespace Digital_Products
 {
@@ -9,14 +10,17 @@ namespace Digital_Products
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            // ????? ????? MVC
+           
+
+
+            // إضافة خدمات MVC
             builder.Services.AddControllersWithViews();
 
-            // ????? ???? ???????? AppDbContext
+            // إعداد AppDbContext لقاعدة البيانات
             builder.Services.AddDbContext<AppDbcontext>(options =>
                 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-            // ??????? ???????? ???????? ???????
+            // إعداد الكوكيز للتوثيق
             builder.Services.AddAuthentication("MyCookieAuth")
                 .AddCookie("MyCookieAuth", options =>
                 {
@@ -25,33 +29,48 @@ namespace Digital_Products
                     options.AccessDeniedPath = "/Account/AccessDenied";
                 });
 
-            var app = builder.Build();
+            // إعداد الجلسات
+            builder.Services.AddSession(options =>
+            {
+                options.IdleTimeout = TimeSpan.FromMinutes(30); // مدة الجلسة
+                options.Cookie.HttpOnly = true;
+                options.Cookie.IsEssential = true;  // لتعيين الكوكيز كأمر أساسي في التطبيق
+            });
 
-            // ????? ?? ???????? (Pipeline) ???????
+    
+        var app = builder.Build();
+
+            app.UseStaticFiles();
+
+
+            // إعدادات الـ Middleware (Pipeline) الخاصة بالتطبيق
             if (app.Environment.IsDevelopment())
             {
-                app.UseDeveloperExceptionPage();  // ???? ?????? ????? ?? ???????
+                app.UseDeveloperExceptionPage();  // صفحة الأخطاء في بيئة التطوير
             }
             else
             {
-                app.UseExceptionHandler("/Home/Error");  // ???? ???? ????? ??????
-                app.UseHsts();
+                app.UseExceptionHandler("/Home/Error");  // عرض صفحة الأخطاء في بيئة الإنتاج
+                app.UseHsts();  // تأمين الاتصال عبر HTTPS
             }
 
-            app.UseHttpsRedirection();
-            app.UseStaticFiles();
+            app.UseHttpsRedirection();  // إعادة توجيه جميع الطلبات إلى HTTPS
+            app.UseStaticFiles();  // تمكين ملفات الاستاتيكية (مثل الصور، CSS، JS)
 
-            app.UseRouting();
+            app.UseRouting();  // تمكين التوجيه للمسارات
 
-            app.UseAuthentication();  // ????? ????????
-            app.UseAuthorization();   // ????? ???????
+            // إضافة الجلسات بعد التوجيه
+            app.UseSession();  // تفعيل دعم الجلسات
 
-            // ????? ?????? ????????? ?????????
+            app.UseAuthentication();  // استخدام التوثيق باستخدام الكوكيز
+            app.UseAuthorization();   // استخدام التفويض (التحقق من الأذونات)
+
+            // إعداد التوجيه للمسارات الافتراضية
             app.MapControllerRoute(
                 name: "default",
                 pattern: "{controller=Home}/{action=Index}/{id?}");
 
-            // ????? ???????
+            // تشغيل التطبيق
             app.Run();
         }
     }

@@ -22,7 +22,6 @@ namespace Digital_Products.Controllers
         [HttpPost]
         public IActionResult SignUp(User user)
         {
-            
             if (_context.Users.Any(u => u.Email == user.Email))
             {
                 ModelState.AddModelError("Email", "This email is already registered.");
@@ -35,7 +34,7 @@ namespace Digital_Products.Controllers
                 _context.SaveChanges();
 
                 TempData["Success"] = "Account created successfully! Please log in.";
-                return RedirectToAction("Login");
+                return RedirectToAction("SignIn");
             }
 
             return View(user);
@@ -47,33 +46,42 @@ namespace Digital_Products.Controllers
         [HttpPost]
         public async Task<IActionResult> SignIn(User user)
         {
+            // البحث عن المستخدم في قاعدة البيانات
             var existingUser = _context.Users
                 .FirstOrDefault(u => u.Email == user.Email && u.PasswordHash == user.PasswordHash);
 
             if (existingUser != null)
             {
+                // إذا كان المستخدم موجودًا وتم التحقق من كلمة المرور، يتم تسجيل الدخول
                 var claims = new List<Claim>
-                {
-                    new Claim(ClaimTypes.Name, existingUser.Username),
-                    new Claim(ClaimTypes.Email, existingUser.Email),
-                    new Claim(ClaimTypes.Role, existingUser.IsAdmin == true ? "Admin" : "User")
-                };
+        {
+            new Claim(ClaimTypes.Name, existingUser.Username),
+            new Claim(ClaimTypes.Email, existingUser.Email),
+            new Claim(ClaimTypes.Role, existingUser.IsAdmin == true ? "Admin" : "User")
+        };
 
                 var identity = new ClaimsIdentity(claims, "MyCookieAuth");
                 var principal = new ClaimsPrincipal(identity);
 
+                // تسجيل الدخول باستخدام الكوكيز
                 await HttpContext.SignInAsync("MyCookieAuth", principal);
+
+                // حفظ اسم المستخدم في الجلسة لعرضه في الصفحة الرئيسية
+                HttpContext.Session.SetString("Username", existingUser.Username);
+
                 return RedirectToAction("Index", "Home");
             }
 
-            ModelState.AddModelError("", "Invalid Email or Password");
+            // إذا لم يتم العثور على المستخدم أو كلمة المرور خاطئة، عرض رسالة الخطأ
+            ViewData["ErrorMessage"] = "Invalid email or password.";
             return View(user);
         }
 
-        public async Task<IActionResult> Logout()
+
+        public async Task<IActionResult> Signout()
         {
             await HttpContext.SignOutAsync("MyCookieAuth");
-            return RedirectToAction("Login");
+            return RedirectToAction("SignIn");
         }
     }
 }

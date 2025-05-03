@@ -5,7 +5,20 @@ wwwroot\css\signin.css
 wwwroot\css\site.css
 wwwroot\css\Style.css
 wwwroot\favicon.ico
-wwwroot\Images\Categories\Screenshot 2025-05-01 191002.png
+wwwroot\images\Category\gamecontrollers.jpg
+wwwroot\images\Category\Graphic_Card.jpg
+wwwroot\images\Category\headsetandmicrophone.jpg
+wwwroot\images\Category\keyboard.jpg
+wwwroot\images\Category\laptop.jpg
+wwwroot\images\Category\Laptop_Accessories.jpg
+wwwroot\images\Category\Monitor.jpg
+wwwroot\images\Category\Mouse.jpg
+wwwroot\images\Category\powerbank.jpg
+wwwroot\images\Category\Smart_Dvices.jpg
+wwwroot\images\Category\smartwatches.jpg
+wwwroot\images\Category\Speakers.jpg
+wwwroot\images\Category\storagedevice.jpg
+wwwroot\images\Category\USBflash.jpg
 wwwroot\js\Cart.js
 wwwroot\js\site.js
 wwwroot\lib\bootstrap\dist\css\bootstrap.css

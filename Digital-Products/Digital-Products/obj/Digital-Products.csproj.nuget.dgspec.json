@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Depi Project\\Digital-Products\\Digital-Products\\Digital-Products.csproj": {}
+    "D:\\DEPI\\Digital-Products\\Digital-Products\\Digital-Products.csproj": {}
   },
   "projects": {
-    "D:\\Depi Project\\Digital-Products\\Digital-Products\\Digital-Products.csproj": {
+    "D:\\DEPI\\Digital-Products\\Digital-Products\\Digital-Products.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Depi Project\\Digital-Products\\Digital-Products\\Digital-Products.csproj",
+        "projectUniqueName": "D:\\DEPI\\Digital-Products\\Digital-Products\\Digital-Products.csproj",
         "projectName": "Digital-Products",
-        "projectPath": "D:\\Depi Project\\Digital-Products\\Digital-Products\\Digital-Products.csproj",
+        "projectPath": "D:\\DEPI\\Digital-Products\\Digital-Products\\Digital-Products.csproj",
         "packagesPath": "C:\\Users\\HESHAM\\.nuget\\packages\\",
-        "outputPath": "D:\\Depi Project\\Digital-Products\\Digital-Products\\obj\\",
+        "outputPath": "D:\\DEPI\\Digital-Products\\Digital-Products\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

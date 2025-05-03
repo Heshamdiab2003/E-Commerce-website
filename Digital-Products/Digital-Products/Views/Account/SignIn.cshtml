@@ -1,9 +1,4 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
-@{
+﻿@{
     Layout = null;
 }
 @model Digital_Products.Models.User
@@ -13,7 +8,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <link rel="stylesheet" href="~/css/Login.css" />
     <title>Login</title>
 </head>
@@ -23,14 +17,22 @@
             <h1>Login</h1>
             <p>Enter Your Details Below</p>
         </div>
-        <form asp-controller="Account" asp-action="Login" method="post" class="form">
+
+        @if (ViewData["ErrorMessage"] != null)
+        {
+            <div class="alert alert-danger">
+                @ViewData["ErrorMessage"]
+            </div>
+        }
+
+        <form asp-controller="Account" asp-action="SignIn" method="post" class="form">
             <div class="inputs">
                 <input asp-for="Email" type="email" placeholder="Email" />
                 <span asp-validation-for="Email" class="text-danger"></span>
                 <input asp-for="PasswordHash" type="password" placeholder="Password" />
                 <span asp-validation-for="PasswordHash" class="text-danger"></span>
             </div>
-            <button type="submit">Login</button>
+            <button type="submit">Sign In</button>
         </form>
     </div>
 
