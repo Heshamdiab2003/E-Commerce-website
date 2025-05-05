@@ -17,15 +17,11 @@
         <header class="category-header">
             <h1>All Categories</h1>
 
-           
-                <div class="actions">
-                    <a href="/Category/Create" class="add-btn">
-                        <i class="fas fa-plus"></i> New Category
-                    </a>
-                </div>
-            
-
-
+            <div class="actions">
+                <a href="/Category/Create" class="add-btn">
+                    <i class="fas fa-plus"></i> New Category
+                </a>
+            </div>
 
             <div class="search-filter">
                 <div class="search-box">
@@ -35,18 +31,19 @@
             </div>
         </header>
 
-
         <main class="categories-grid">
             @foreach (var category in Model)
             {
                 <div class="category-card">
-                    <div class="category-icon">
-                        <img src="@category.ImagePath" asp-append-version="true" alt="@category.Name" />
-                        
-                    </div>
-                    <h3>@category.Name</h3>
-                    <p>Category Description</p>
-                    <span class="item-count">@category.Products?.Count() ?? 0 Products</span>
+                    <!-- الرابط لتوجيه المستخدم إلى المنتجات الخاصة بالكاتيجوري -->
+                    <a href="@Url.Action("ByCategory", "Product", new { id = category.Id })" class="category-link">
+                        <div class="category-icon">
+                            <img src="@category.ImagePath" asp-append-version="true" alt="@category.Name" />
+                        </div>
+                        <h3>@category.Name</h3>
+                        <p>Category Description</p>
+                        <span class="item-count">@category.Products?.Count() ?? 0 Products</span>
+                    </a>
                 </div>
             }
         </main>
