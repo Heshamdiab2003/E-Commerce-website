@@ -2,59 +2,195 @@
 @{
     Layout = null;
 }
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Shopping Cart</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="~/css/cart.css">
-    <script src="~/js/cart.js" defer></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
+    <style>
+        .cart-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .cart-title {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .cart-item {
+            display: flex;
+            border-bottom: 1px solid #ddd;
+            padding: 10px 0;
+        }
+
+        .cart-item-img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            margin-right: 20px;
+        }
+
+        .cart-item-details {
+            flex-grow: 1;
+        }
+
+        .cart-item-title {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+
+        .cart-item-desc {
+            color: #555;
+        }
+
+        .cart-item-actions {
+            margin-top: 10px;
+        }
+
+        .cart-item-action-link {
+            color: #007185;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+
+        .cart-item-qty-price {
+            text-align: right;
+        }
+
+        .cart-item-qty {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .qty-btn {
+            width: 30px;
+            height: 30px;
+            background: #f0f0f0;
+            border: none;
+            cursor: pointer;
+        }
+
+        .qty-value {
+            margin: 0 10px;
+        }
+
+        .cart-item-price {
+            font-weight: bold;
+        }
+
+        .remove-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .cart-summary {
+            margin-top: 20px;
+            text-align: right;
+        }
+
+        .cart-summary-total {
+            font-weight: bold;
+        }
+
+        .checkout-btn {
+            background: #ffd814;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
     <div class="cart-container">
         <h2 class="cart-title">Shopping Cart</h2>
         <div class="cart-items">
-            @foreach (var item in Model)
+            @if (!Model.Any())
             {
-                <div class="cart-item" data-id="@item.Id">
-                    <img src="@item.Product.ImageUrl" alt="@item.Product.Name" class="cart-item-img">
-                    <div class="cart-item-details">
-                        <div class="cart-item-title">@item.Product.Name</div>
-                        <div class="cart-item-desc">@item.Product.Description</div>
-                        <div class="cart-item-actions">
-                            <span class="cart-item-status">In Stock</span>
-                            <span class="cart-item-action-link">Share</span>
-                            <span class="cart-item-action-link">Save for Later</span>
-                            <form asp-action="RemoveFromCart" asp-route-id="@item.Id" method="post" style="display:inline;">
-                                <button type="submit" class="cart-item-action-link" style="background:none;border:none;color:#007185;cursor:pointer;" title="Delete">Delete</button>
+                <p class="text-center">Your cart is empty.</p>
+            }
+            else
+            {
+                @foreach (var item in Model)
+                {
+                    <div class="cart-item" data-id="@item.Id">
+                        <img src="@(item.Product?.ImageUrl ?? "/images/placeholder.jpg")" alt="@(item.Product?.Name ?? "Product")" class="cart-item-img">
+                        <div class="cart-item-details">
+                            <div class="cart-item-title">@(item.Product?.Name ?? "Product not found")</div>
+                            <div class="cart-item-desc">@(item.Product?.Description ?? "No description")</div>
+                            <div class="cart-item-actions">
+                                <span class="cart-item-status">In Stock</span>
+                                <span class="cart-item-action-link">Share</span>
+                                <span class="cart-item-action-link">Save for Later</span>
+                                <form asp-action="RemoveFromCart" asp-route-id="@item.Id" method="post" style="display:inline;">
+                                    <button type="submit" class="cart-item-action-link" style="background:none;border:none;color:#007185;cursor:pointer;" title="Delete">Delete</button>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="cart-item-qty-price">
+                            <div class="cart-item-qty">
+                                <button class="qty-btn" data-id="@item.Id" data-action="increment">+</button>
+                                <span class="qty-value">@item.Quantity</span>
+                                <button class="qty-btn" data-id="@item.Id" data-action="decrement">-</button>
+                            </div>
+                            <div class="cart-item-price">$@(item.Product?.Price.ToString("0.00") ?? "0.00")</div>
+                            <form asp-action="RemoveFromCart" asp-route-id="@item.Id" method="post">
+                                <button type="submit" class="remove-btn" title="Remove Item">🗑️</button>
                             </form>
                         </div>
                     </div>
-                    <div class="cart-item-qty-price">
-                        <div class="cart-item-qty">
-                            <button class="qty-btn">+</button>
-                            <span class="qty-value">@item.Quantity</span>
-                            <button class="qty-btn">-</button>
-                        </div>
-                        <div class="cart-item-price">$@item.Product.Price.ToString("0.00")</div>
-                        <form asp-action="RemoveFromCart" asp-route-id="@item.Id" method="post">
-                            <button type="submit" class="remove-btn" title="Remove Item">🗑️</button>
-                        </form>
-                    </div>
-                </div>
+                }
             }
         </div>
         <div class="cart-summary">
             <div class="cart-summary-details">
                 <span>Subtotal (@Model.Sum(i => i.Quantity) items):</span>
                 <span class="cart-summary-total">
-                    $@(Model.Sum(i => i.Quantity * i.Product.Price).ToString("0.00"))
+                    $@(Model.Sum(i => i.Quantity * (i.Product?.Price ?? 0)).ToString("0.00"))
                 </span>
             </div>
-            <button class="checkout-btn">Proceed to Checkout</button>
+            <form asp-action="Checkout" method="post">
+                <button type="submit" class="checkout-btn">Proceed to Checkout</button>
+            </form>
         </div>
     </div>
+    @Html.AntiForgeryToken()
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.qty-btn').click(function () {
+                var cartItemId = $(this).data('id');
+                var action = $(this).data('action');
+                console.log("Updating CartItem ID: ", cartItemId, " Action: ", action);
+                $.ajax({
+                    url: '/Cart/UpdateQuantity',
+                    type: 'POST',
+                    data: {
+                        cartItemId: cartItemId,
+                        action: action,
+                        __RequestVerificationToken: $('input[name="__RequestVerificationToken"]').val()
+                    },
+                    success: function (response) {
+                        console.log("Response: ", response);
+                        if (response.success) {
+                            location.reload(); // Refresh page to update UI
+                        } else {
+                            alert(response.message);
+                        }
+                    },
+                    error: function (xhr) {
+                        console.log("AJAX Error: ", xhr.responseText);
+                        alert('Error updating quantity.');
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>

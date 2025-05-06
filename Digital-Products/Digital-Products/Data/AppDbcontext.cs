@@ -28,6 +28,15 @@ namespace Digital_Products.Data
             modelBuilder.Entity<CartItem>()
                 .Property(c => c.Price)
                 .HasColumnType("decimal(18,2)");
+
+
+            modelBuilder.Entity<CartItem>()
+    .HasOne(c => c.Order)
+    .WithMany(o => o.CartItems)
+    .HasForeignKey(c => c.OrderId)
+    .IsRequired(false); // ده هو المفتاح لحل المشكلة
+
+
         }
 
 

@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Digital_Products.Models;
 using Digital_Products.Data;
+using Digital_Products.Models;
+using Microsoft.EntityFrameworkCore;
+using System.Security.Claims;
 
 namespace Digital_Products.Controllers
 {
@@ -13,41 +15,49 @@ namespace Digital_Products.Controllers
             _context = context;
         }
 
+        // Display list of orders for the current user
         public IActionResult Index()
         {
-            var orders = _context.Orders.ToList();
+            // الحصول على معرف المستخدم الحالي
+            var userIdClaim = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            if (string.IsNullOrEmpty(userIdClaim) || !int.TryParse(userIdClaim, out int userId))
+            {
+                TempData["Error"] = "يجب تسجيل الدخول لعرض الطلبات.";
+                return RedirectToAction("Login", "Account");
+            }
+
+            // جلب الطلبات الخاصة بالمستخدم الحالي
+            var orders = _context.Orders
+                .Where(o => o.UserId == userId)
+                .Include(o => o.CartItems)
+                    .ThenInclude(ci => ci.Product)
+                .OrderByDescending(o => o.OrderDate)
+                .ToList();
+
             return View(orders);
         }
 
-
-
+        // Display details of a specific order
         public IActionResult Details(int id)
         {
-            var order = _context.Orders.Find(id);
-            if (order == null)
+            // الحصول على معرف المستخدم الحالي
+            var userIdClaim = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            if (string.IsNullOrEmpty(userIdClaim) || !int.TryParse(userIdClaim, out int userId))
             {
-                return NotFound();
+                TempData["Error"] = "يجب تسجيل الدخول لعرض تفاصيل الطلب.";
+                return RedirectToAction("Login", "Account");
             }
 
-            return View(order);
-        }
+            // جلب الطلب مع التأكد من أنه يخص المستخدم الحالي
+            var order = _context.Orders
+                .Include(o => o.CartItems)
+                    .ThenInclude(ci => ci.Product)
+                .Include(o => o.User)
+                .FirstOrDefault(o => o.Id == id && o.UserId == userId);
 
-
-
-        public IActionResult Create()
-        {
-            return View();
-        }
-
-
-
-        [HttpPost]
-        public IActionResult Create(Order order)
-        {
-            if (ModelState.IsValid)
+            if (order == null)
             {
-                _context.Orders.Add(order);
-                _context.SaveChanges();
+                TempData["Error"] = "الطلب غير موجود أو لا يخصك.";
                 return RedirectToAction("Index");
             }
 

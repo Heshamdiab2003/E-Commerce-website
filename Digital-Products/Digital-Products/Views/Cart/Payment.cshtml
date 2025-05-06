@@ -1,0 +1,52 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model Digital_Products.Models.Payment
+@{
+    ViewData["Title"] = "Payment";
+    Layout = null; // استبدل بـ Layout الخاص بك إذا لزم الأمر
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Payment</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
+    <style>
+        .payment-container { max-width: 600px; margin: 0 auto; padding: 20px; }
+        .payment-title { text-align: center; margin-bottom: 20px; }
+        .form-group { margin-bottom: 15px; }
+        .form-label { font-weight: bold; }
+        .btn-submit { background: #ffd814; border: none; padding: 10px 20px; }
+    </style>
+</head>
+<body>
+    <div class="payment-container">
+        <h2 class="payment-title">Payment Information</h2>
+        @if (TempData["Error"] != null)
+        {
+                <div class="alert alert-danger">@TempData["Error"]</div>
+        }
+        <form asp-action="Payment" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="PaymentMethod" class="form-label">Payment Method</label>
+                <select asp-for="PaymentMethod" class="form-control" required>
+                    <option value="">Select a payment method</option>
+                    <option value="CreditCard">Credit Card</option>
+                    <option value="CashOnDelivery">Cash on Delivery</option>
+                    <option value="PayPal">PayPal</option>
+                </select>
+                <span asp-validation-for="PaymentMethod" class="text-danger"></span>
+            </div>
+            <button type="submit" class="btn btn-submit">Complete Payment</button>
+        </form>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script asp-src-include="wwwroot/js/site.js"></script>
+</body>
+</html>

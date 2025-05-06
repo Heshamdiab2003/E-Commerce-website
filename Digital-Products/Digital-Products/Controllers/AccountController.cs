@@ -46,37 +46,32 @@ namespace Digital_Products.Controllers
         [HttpPost]
         public async Task<IActionResult> SignIn(User user)
         {
-            // البحث عن المستخدم في قاعدة البيانات
             var existingUser = _context.Users
-                .FirstOrDefault(u => u.Email == user.Email && u.PasswordHash == user.PasswordHash);
+            .FirstOrDefault(u => u.Email == user.Email && u.PasswordHash == user.PasswordHash);
 
             if (existingUser != null)
             {
-                // إذا كان المستخدم موجودًا وتم التحقق من كلمة المرور، يتم تسجيل الدخول
                 var claims = new List<Claim>
-        {
-            new Claim(ClaimTypes.Name, existingUser.Username),
-            new Claim(ClaimTypes.Email, existingUser.Email),
-            new Claim(ClaimTypes.Role, existingUser.IsAdmin == true ? "Admin" : "User")
-        };
+{
+new Claim(ClaimTypes.Name, existingUser.Username),
+new Claim(ClaimTypes.Email, existingUser.Email),
+new Claim(ClaimTypes.Role, existingUser.IsAdmin == true ? "Admin" : "User"),
+new Claim(ClaimTypes.NameIdentifier, existingUser.Id.ToString()) // إضافة UserId
+};
 
                 var identity = new ClaimsIdentity(claims, "MyCookieAuth");
                 var principal = new ClaimsPrincipal(identity);
 
-                // تسجيل الدخول باستخدام الكوكيز
                 await HttpContext.SignInAsync("MyCookieAuth", principal);
 
-                // حفظ اسم المستخدم في الجلسة لعرضه في الصفحة الرئيسية
                 HttpContext.Session.SetString("Username", existingUser.Username);
 
                 return RedirectToAction("Index", "Home");
             }
 
-            // إذا لم يتم العثور على المستخدم أو كلمة المرور خاطئة، عرض رسالة الخطأ
             ViewData["ErrorMessage"] = "Invalid email or password.";
             return View(user);
         }
-
 
         public async Task<IActionResult> Signout()
         {
