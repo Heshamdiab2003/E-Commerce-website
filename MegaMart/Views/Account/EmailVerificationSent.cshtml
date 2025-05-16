@@ -1,0 +1,19 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "تم إرسال بريد التأكيد";
+}
+
+<div class="text-center mt-5">
+    <h2>@ViewData["Title"]</h2>
+    <div class="alert alert-info mt-4">
+        <p>تم إرسال رابط تأكيد البريد الإلكتروني إلى بريدك.</p>
+        <p>يرجى التحقق من صندوق الوارد الخاص بك والنقر على الرابط لتأكيد حسابك.</p>
+        <p>إذا لم تجد البريد في صندوق الوارد، يرجى التحقق من مجلد البريد المزعج (Spam).</p>
+        <p>ينتهي رابط التأكيد خلال 24 ساعة.</p>
+    </div>
+    <div class="mt-4">
+        <a href="@Url.Action("Login", "Account")" class="btn btn-primary">العودة إلى صفحة تسجيل الدخول</a>
+    </div>
+</div>

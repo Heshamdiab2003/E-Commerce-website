@@ -1,0 +1,257 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #f8f9fa;
+    color: #222;
+    margin: 0;
+    padding: 0;
+    direction: rtl;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Header */
+.main-header {
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(67, 97, 238, 0.07);
+    padding: 1.2rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.logo {
+    display: flex;
+    align-items: center;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: #4361ee;
+    gap: 0.5rem;
+}
+.logo i {
+    color: #3f37c9;
+}
+.main-nav a {
+    color: #222;
+    text-decoration: none;
+    margin-left: 2rem;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+.main-nav a:hover {
+    color: #4361ee;
+}
+
+/* Hero Section */
+.hero-section {
+    background: linear-gradient(120deg, #4361ee 0%, #4cc9f0 100%);
+    color: #fff;
+    padding: 4rem 0 3rem 0;
+    text-align: center;
+    border-radius: 0 0 2rem 2rem;
+    margin-bottom: 2rem;
+}
+.hero-content h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+.btn.btn-primary {
+    background: #fff;
+    color: #4361ee;
+    border: 2px solid #4361ee;
+    border-radius: 0.5rem;
+    padding: 0.75rem 2rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s;
+    cursor: pointer;
+}
+.btn.btn-primary:hover {
+    background: #4361ee;
+    color: #fff;
+}
+
+/* Featured Products */
+.featured-products {
+    margin: 3rem 0;
+}
+.featured-products h2 {
+    text-align: center;
+    color: #3f37c9;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+.product-card {
+    background: #fff;
+    border-radius: 1rem;
+    box-shadow: 0 2px 8px rgba(67, 97, 238, 0.07);
+    padding: 1.5rem 1rem;
+    text-align: center;
+    transition: box-shadow 0.2s, transform 0.2s;
+}
+.product-card:hover {
+    box-shadow: 0 6px 24px rgba(67, 97, 238, 0.13);
+    transform: translateY(-6px) scale(1.03);
+}
+.product-card img {
+    width: 100%;
+    max-width: 160px;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 0.7rem;
+    margin-bottom: 1rem;
+}
+.product-card h3 {
+    font-size: 1.1rem;
+    margin: 0.5rem 0 0.3rem 0;
+}
+.product-card .price {
+    color: #4361ee;
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+/* Why MegaMart */
+.why-megamart {
+    background: #fff;
+    border-radius: 1.5rem;
+    box-shadow: 0 2px 8px rgba(67, 97, 238, 0.07);
+    padding: 2.5rem 0 2rem 0;
+    margin-bottom: 2rem;
+}
+.why-megamart h2 {
+    text-align: center;
+    color: #3f37c9;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}
+.features-grid {
+    display: flex;
+    justify-content: center;
+    gap: 2.5rem;
+    flex-wrap: wrap;
+}
+.feature-item {
+    background: #f8f9fa;
+    border-radius: 1rem;
+    box-shadow: 0 1px 4px rgba(67, 97, 238, 0.05);
+    padding: 1.5rem 1.2rem;
+    text-align: center;
+    width: 220px;
+}
+.feature-item i {
+    font-size: 2.2rem;
+    color: #4361ee;
+    margin-bottom: 0.7rem;
+}
+.feature-item h4 {
+    margin: 0.5rem 0 0.3rem 0;
+    font-size: 1.1rem;
+    color: #3f37c9;
+}
+.feature-item p {
+    font-size: 0.97rem;
+    color: #555;
+}
+
+/* Footer */
+.main-footer {
+    background: #222;
+    color: #fff;
+    padding: 2rem 0 1rem 0;
+    border-radius: 1.5rem 1.5rem 0 0;
+    margin-top: 3rem;
+}
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+}
+.footer-logo {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #4cc9f0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+.footer-links a {
+    color: #fff;
+    text-decoration: none;
+    margin-left: 1.5rem;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+.footer-links a:hover {
+    color: #4cc9f0;
+}
+.footer-social a {
+    color: #fff;
+    margin-left: 1rem;
+    font-size: 1.3rem;
+    transition: color 0.2s;
+}
+.footer-social a:hover {
+    color: #4cc9f0;
+}
+.footer-copy {
+    flex-basis: 100%;
+    text-align: center;
+    margin-top: 1.5rem;
+    font-size: 0.95rem;
+    color: #aaa;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .header-container, .footer-container {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    .features-grid {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    .products-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .hero-content h1 {
+        font-size: 1.5rem;
+    }
+    .main-nav a {
+        margin-left: 1rem;
+        font-size: 1rem;
+    }
+    .product-card img {
+        max-width: 100px;
+        height: 80px;
+    }
+    .why-megamart, .main-footer {
+        border-radius: 0.7rem;
+    }
+} 

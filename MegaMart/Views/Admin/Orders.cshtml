@@ -1,0 +1,209 @@
+@model IEnumerable<MegaMart.Models.Order>
+
+@{
+    ViewData["Title"] = "الطلبات";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"] - لوحة التحكم</title>
+    <link rel="stylesheet" href="~/css/admin-orders.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <a href="/Admin/Dashboard" class="sidebar-brand">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span>MegaMart</span>
+                </a>
+            </div>
+            <ul class="sidebar-menu">
+                <li class="sidebar-item">
+                    <a href="/Admin/Dashboard" class="sidebar-link">
+                        <i class="fas fa-tachometer-alt"></i>
+                        <span>لوحة التحكم</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="/Admin/Products" class="sidebar-link">
+                        <i class="fas fa-box"></i>
+                        <span>المنتجات</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="/Admin/Categories" class="sidebar-link">
+                        <i class="fas fa-tags"></i>
+                        <span>الفئات</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="/Admin/Orders" class="sidebar-link active">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span>الطلبات</span>
+                    </a>
+                </li>
+            </ul>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Topbar -->
+            <div class="topbar">
+               
+                <div class="user-menu">
+                    <span>مرحباً، @User.Identity?.Name</span>
+                    <form asp-controller="Account" asp-action="Logout" method="post" style="display: inline;">
+                        <button type="submit" class="btn btn-outline">
+                            <i class="fas fa-sign-out-alt"></i>
+                            تسجيل الخروج
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Orders Content -->
+            <div class="content">
+                <div class="content-header">
+                    <h1>إدارة الطلبات</h1>
+                </div>
+
+                <!-- Search and Filter -->
+                <div class="search-filter">
+                    <div class="search-box">
+                        <input type="text" placeholder="بحث في الطلبات...">
+                      
+                    </div>
+                    <div class="filter-box">
+                        <select>
+                            <option value="">كل الحالات</option>
+                            <option value="Pending">معلق</option>
+                            <option value="Processing">قيد المعالجة</option>
+                            <option value="Shipped">تم الشحن</option>
+                            <option value="Delivered">تم التوصيل</option>
+                            <option value="Cancelled">ملغي</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Orders Table -->
+                <div class="orders-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>رقم الطلب</th>
+                                <th>العميل</th>
+                                <th>التاريخ</th>
+                                <th>المبلغ</th>
+                                <th>الحالة</th>
+                                <th>الإجراءات</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var order in Model)
+                            {
+                                <tr>
+                                    <td>#@order.Id</td>
+                                    <td>@order.User.UserName</td>
+                                    <td>@order.OrderDate.ToString("dd/MM/yyyy")</td>
+                                    <td>@order.TotalAmount.ToString("C")</td>
+                                    <td>
+                                        <span class="badge @order.Status.ToString().ToLower()">
+                                            @(order.Status switch
+                                            {
+                                                OrderStatus.Pending => "معلق",
+                                                OrderStatus.Processing => "قيد المعالجة",
+                                                OrderStatus.Shipped => "تم الشحن",
+                                                OrderStatus.Delivered => "تم التوصيل",
+                                                OrderStatus.Cancelled => "ملغي",
+                                                _ => order.Status.ToString()
+                                            })
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <div class="order-actions">
+                                            <button class="btn btn-primary" onclick="showOrderDetails(@order.Id)">
+                                                <i class="fas fa-eye"></i>
+                                                عرض التفاصيل
+                                            </button>
+                                            <div class="dropdown">
+                                                <button class="btn btn-secondary dropdown-toggle">
+                                                    <i class="fas fa-cog"></i>
+                                                    تغيير الحالة
+                                                </button>
+                                                <div class="dropdown-menu">
+                                                    <form asp-action="UpdateOrderStatus" method="post">
+                                                        <input type="hidden" name="id" value="@order.Id">
+                                                        <button type="submit" name="status" value="@OrderStatus.Pending" class="dropdown-item">معلق</button>
+                                                        <button type="submit" name="status" value="@OrderStatus.Processing" class="dropdown-item">قيد المعالجة</button>
+                                                        <button type="submit" name="status" value="@OrderStatus.Shipped" class="dropdown-item">تم الشحن</button>
+                                                        <button type="submit" name="status" value="@OrderStatus.Delivered" class="dropdown-item">تم التوصيل</button>
+                                                        <button type="submit" name="status" value="@OrderStatus.Cancelled" class="dropdown-item">ملغي</button>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Order Details Modal -->
+    <div id="orderDetailsModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>تفاصيل الطلب</h2>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <!-- Order details will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Toggle sidebar on mobile
+        document.querySelector('.sidebar-toggle').addEventListener('click', function() {
+            document.querySelector('.dashboard-container').classList.toggle('sidebar-collapsed');
+        });
+
+        // Show order details
+        function showOrderDetails(orderId) {
+            const modal = document.getElementById('orderDetailsModal');
+            const modalBody = modal.querySelector('.modal-body');
+            
+            // Load order details via AJAX
+            fetch(`/Admin/OrderDetails/${orderId}`)
+                .then(response => response.text())
+                .then(html => {
+                    modalBody.innerHTML = html;
+                    modal.style.display = 'block';
+                });
+        }
+
+        // Close modal
+        document.querySelector('.close-modal').addEventListener('click', function() {
+            document.getElementById('orderDetailsModal').style.display = 'none';
+        });
+
+        // Close modal when clicking outside
+        window.addEventListener('click', function(event) {
+            const modal = document.getElementById('orderDetailsModal');
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html> 

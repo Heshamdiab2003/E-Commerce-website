@@ -1,0 +1,51 @@
+@model IEnumerable<MegaMart.Controllers.ProductReportViewModel>
+@{
+    ViewData["Title"] = "تقرير المنتجات";
+    Layout = "_AdminLayout";
+}
+
+<div class="container-fluid">
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">تقرير المنتجات</h1>
+    </div>
+
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">تفاصيل المنتجات</h6>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>المنتج</th>
+                            <th>الفئة</th>
+                            <th>السعر</th>
+                            <th>الكمية المباعة</th>
+                            <th>إجمالي المبيعات</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.Product.Name</td>
+                                <td>@item.Product.Category?.Name</td>
+                                <td>@item.Product.Price.ToString("C")</td>
+                                <td>@item.TotalQuantity</td>
+                                <td>@item.TotalRevenue.ToString("C")</td>
+                            </tr>
+                        }
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <th colspan="3">الإجمالي</th>
+                            <th>@Model.Sum(x => x.TotalQuantity)</th>
+                            <th>@Model.Sum(x => x.TotalRevenue).ToString("C")</th>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+</div> 

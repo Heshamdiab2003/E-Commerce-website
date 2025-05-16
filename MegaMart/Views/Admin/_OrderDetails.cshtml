@@ -1,0 +1,69 @@
+@model MegaMart.Models.Order
+
+<div class="order-details">
+    <div class="order-info">
+        <div class="info-group">
+            <label>رقم الطلب:</label>
+            <span>#@Model.Id</span>
+        </div>
+        <div class="info-group">
+            <label>العميل:</label>
+            <span>@Model.User.UserName</span>
+        </div>
+        <div class="info-group">
+            <label>تاريخ الطلب:</label>
+            <span>@Model.OrderDate.ToString("dd/MM/yyyy HH:mm")</span>
+        </div>
+        <div class="info-group">
+            <label>حالة الطلب:</label>
+            <span class="badge @Model.Status.ToString().ToLower()">
+                @(Model.Status switch
+                {
+                    OrderStatus.Pending => "معلق",
+                    OrderStatus.Processing => "قيد المعالجة",
+                    OrderStatus.Shipped => "تم الشحن",
+                    OrderStatus.Delivered => "تم التوصيل",
+                    OrderStatus.Cancelled => "ملغي",
+                    _ => Model.Status.ToString()
+                })
+            </span>
+        </div>
+    </div>
+
+    <div class="order-items">
+        <h3>المنتجات</h3>
+        <div class="items-list">
+            @foreach (var item in Model.OrderItems)
+            {
+                <div class="order-item">
+                    <div class="item-image">
+                        <img src="@item.Product.ImageUrl" alt="@item.Product.Name">
+                    </div>
+                    <div class="item-info">
+                        <h4>@item.Product.Name</h4>
+                        <p class="item-price">@item.Price.ToString("C")</p>
+                        <p class="item-quantity">الكمية: @item.Quantity</p>
+                    </div>
+                    <div class="item-total">
+                        @((item.Price * item.Quantity).ToString("C"))
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+
+    <div class="order-summary">
+        <div class="summary-row">
+            <span>المجموع الفرعي:</span>
+            <span>@Model.TotalAmount.ToString("C")</span>
+        </div>
+        <div class="summary-row">
+            <span>الضريبة:</span>
+            <span>@((Model.TotalAmount * 0.15m).ToString("C"))</span>
+        </div>
+        <div class="summary-row total">
+            <span>المجموع الكلي:</span>
+            <span>@((Model.TotalAmount * 1.15m).ToString("C"))</span>
+        </div>
+    </div>
+</div> 

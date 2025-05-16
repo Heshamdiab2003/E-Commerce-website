@@ -1,0 +1,77 @@
+@model MegaMart.Models.ApplicationUser
+@{
+    ViewData["Title"] = "تفاصيل المستخدم";
+    Layout = "_AdminLayout";
+}
+
+<div class="container-fluid">
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">تفاصيل المستخدم</h1>
+    </div>
+
+    <div class="row">
+        <div class="col-xl-8 col-lg-7">
+            <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-primary">معلومات المستخدم</h6>
+                </div>
+                <div class="card-body">
+                    <div class="mb-3">
+                        <h6 class="font-weight-bold">معلومات الحساب</h6>
+                        <p>البريد الإلكتروني: @Model.Email</p>
+                        <p>الاسم: @Model.FullName</p>
+                        <p>تاريخ التسجيل: @Model.CreatedAt.ToString("dd/MM/yyyy")</p>
+                        <p>آخر تسجيل دخول: @Model.LastLoginAt?.ToString("dd/MM/yyyy HH:mm")</p>
+                    </div>
+
+                    <div class="mb-3">
+                        <h6 class="font-weight-bold">الأدوار</h6>
+                        <div class="mb-2">
+                            @foreach (var role in ViewBag.Roles)
+                            {
+                                <span class="badge badge-primary mr-1">@role</span>
+                            }
+                        </div>
+                        <form asp-action="ToggleRole" method="post" class="form-inline">
+                            <input type="hidden" name="id" value="@Model.Id" />
+                            <select name="role" class="form-control mr-2">
+                                <option value="Admin">مدير</option>
+                                <option value="User">مستخدم</option>
+                            </select>
+                            <button type="submit" class="btn btn-primary">تحديث الأدوار</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-4 col-lg-5">
+            <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-primary">إحصائيات المستخدم</h6>
+                </div>
+                <div class="card-body">
+                    <div class="mb-3">
+                        <h6 class="font-weight-bold">الطلبات</h6>
+                        <p>عدد الطلبات: @Model.Orders?.Count</p>
+                        <p>إجمالي المشتريات: @Model.Orders?.Sum(o => o.TotalAmount).ToString("C")</p>
+                    </div>
+
+                    <div class="mb-3">
+                        <h6 class="font-weight-bold">سلة التسوق</h6>
+                        <p>عدد المنتجات في السلة: @Model.Cart?.CartItems?.Count</p>
+                        <p>إجمالي السلة: @Model.Cart?.TotalAmount.ToString("C")</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <a href="/Users" class="btn btn-secondary">
+                <i class="fas fa-arrow-right"></i> رجوع
+            </a>
+        </div>
+    </div>
+</div> 

@@ -1,0 +1,167 @@
+@model MegaMart.Models.ViewModels.AdminDashboardViewModel
+@{
+    ViewData["Title"] = "لوحة التحكم";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>@ViewData["Title"] - MegaMart</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link href="~/css/admin-dashboard.css" rel="stylesheet">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <a href="/Admin/Dashboard" class="sidebar-brand">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span>MegaMart</span>
+                </a>
+            </div>
+            <ul class="sidebar-menu">
+                <li class="sidebar-item">
+                    <a href="/Admin/Dashboard" class="sidebar-link active">
+                        <i class="fas fa-tachometer-alt"></i>
+                        <span>لوحة التحكم</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="/Admin/Products" class="sidebar-link">
+                        <i class="fas fa-box"></i>
+                        <span>المنتجات</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="/Admin/Categories" class="sidebar-link">
+                        <i class="fas fa-tags"></i>
+                        <span>الفئات</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="/Admin/Orders" class="sidebar-link">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span>الطلبات</span>
+                    </a>
+                </li>
+            </ul>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Topbar -->
+            <div class="topbar">
+                <span>مرحباً، @User.Identity.Name</span>
+                <form asp-controller="Account" asp-action="Logout" method="post" style="display: inline;">
+                    <button type="submit" class="btn btn-outline">
+                        <i class="fas fa-sign-out-alt"></i>
+                        تسجيل الخروج
+                    </button>
+                </form>
+            </div>
+
+            <!-- Stats Grid -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon primary">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>@Model.TotalOrders</h3>
+                        <p>إجمالي الطلبات</p>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon success">
+                        <i class="fas fa-dollar-sign"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>@Model.TotalRevenue.ToString("C")</h3>
+                        <p>إجمالي المبيعات</p>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon warning">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>@Model.PendingOrders</h3>
+                        <p>الطلبات المعلقة</p>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon info">
+                        <i class="fas fa-box"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>@Model.TotalProducts</h3>
+                        <p>إجمالي المنتجات</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Orders Table -->
+            <div class="card">
+                <div class="card-header">
+                    <h6 class="card-title">آخر الطلبات</h6>
+                </div>
+                <div class="card-body">
+                    <div class="table-container">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>رقم الطلب</th>
+                                    <th>المستخدم</th>
+                                    <th>التاريخ</th>
+                                    <th>المبلغ</th>
+                                    <th>الحالة</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var order in Model.RecentOrders)
+                                {
+                                    <tr>
+                                        <td>@order.Id</td>
+                                        <td>@order.User.Email</td>
+                                        <td>@order.OrderDate.ToString("dd/MM/yyyy")</td>
+                                        <td>@order.TotalAmount.ToString("C")</td>
+                                        <td>
+                                            <span class="badge @(order.Status switch {
+                                                OrderStatus.Pending => "badge-warning",
+                                                OrderStatus.Processing => "badge-info",
+                                                OrderStatus.Shipped => "badge-primary",
+                                                OrderStatus.Delivered => "badge-success",
+                                                OrderStatus.Cancelled => "badge-danger",
+                                                _ => "badge-secondary"
+                                            })">
+                                                @order.Status
+                                            </span>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        // Toggle Sidebar on Mobile
+        document.querySelector('.sidebar-toggle').addEventListener('click', function() {
+            document.querySelector('.sidebar').classList.toggle('active');
+        });
+    </script>
+</body>
+</html> 

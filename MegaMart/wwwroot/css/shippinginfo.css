@@ -1,0 +1,8 @@
+.shipping-container { background: #fff; border-radius: 16px; box-shadow: 0 2px 16px #e3e6f0; padding: 2.5rem 2rem; max-width: 500px; margin: 40px auto; }
+.form-group { margin-bottom: 1.5rem; }
+.form-label { font-weight: 600; color: #2e3a59; margin-bottom: 0.5rem; }
+.form-control { border-radius: 8px; border: 1px solid #d1d3e2; padding: 0.75rem 1rem; font-size: 1rem; background: #f8f9fc; transition: border 0.2s; }
+.form-control:focus { border-color: #4e73df; outline: none; background: #fff; }
+.btn-primary { background: #4e73df; color: #fff; border: none; border-radius: 8px; padding: 0.75rem 2rem; font-weight: 600; font-size: 1rem; transition: background 0.2s; }
+.btn-primary:hover { background: #2e59d9; }
+.text-danger { color: #e74a3b; font-size: 0.95rem; } 

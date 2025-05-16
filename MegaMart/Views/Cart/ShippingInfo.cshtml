@@ -1,0 +1,26 @@
+@model MegaMart.Models.ShippingInfoModel
+@{
+    ViewData["Title"] = "معلومات الشحن";
+}
+<link rel="stylesheet" href="~/css/shippinginfo.css" />
+<div class="shipping-container">
+    <h2>معلومات الشحن</h2>
+    <form asp-action="ShippingInfo" method="post">
+        <div class="form-group">
+            <label asp-for="FullName">الاسم الكامل</label>
+            <input asp-for="FullName" class="form-control" />
+            <span asp-validation-for="FullName" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Address">العنوان</label>
+            <input asp-for="Address" class="form-control" />
+            <span asp-validation-for="Address" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Phone">رقم الهاتف</label>
+            <input asp-for="Phone" class="form-control" />
+            <span asp-validation-for="Phone" class="text-danger"></span>
+        </div>
+        <button type="submit" class="btn btn-primary">متابعة الدفع</button>
+    </form>
+</div> 

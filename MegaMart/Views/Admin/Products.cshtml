@@ -1,0 +1,126 @@
+@model IEnumerable<MegaMart.Models.Product>
+@{
+    ViewData["Title"] = "المنتجات";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>@ViewData["Title"] - MegaMart</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link href="~/css/admin-products.css" rel="stylesheet">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <a href="/Admin/Dashboard" class="sidebar-brand">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span>MegaMart</span>
+                </a>
+            </div>
+            <ul class="sidebar-menu">
+                <li class="sidebar-item">
+                    <a href="/Admin/Dashboard" class="sidebar-link">
+                        <i class="fas fa-tachometer-alt"></i>
+                        <span>لوحة التحكم</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="/Admin/Products" class="sidebar-link active">
+                        <i class="fas fa-box"></i>
+                        <span>المنتجات</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="/Admin/Categories" class="sidebar-link">
+                        <i class="fas fa-tags"></i>
+                        <span>الفئات</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="/Admin/Orders" class="sidebar-link">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span>الطلبات</span>
+                    </a>
+                </li>
+            </ul>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Topbar -->
+            <div class="topbar">
+                <div class="topbar-actions">
+                    <span>مرحباً، @User.Identity.Name</span>
+                    <form asp-controller="Account" asp-action="Logout" method="post" style="display: inline;">
+                        <button type="submit" class="btn btn-outline">
+                            <i class="fas fa-sign-out-alt"></i>
+                            تسجيل الخروج
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Search and Filter -->
+            <div class="search-filter">
+                <input type="text" class="search-input" placeholder="بحث عن منتج...">
+                <select class="filter-select">
+                    <option value="">جميع الفئات</option>
+                    @foreach (var category in ViewBag.Categories)
+                    {
+                        <option value="@category.Id">@category.Name</option>
+                    }
+                </select>
+                <a href="/Admin/CreateProduct" class="btn btn-primary">
+                    <i class="fas fa-plus"></i>
+                    إضافة منتج
+                </a>
+            </div>
+
+            <!-- Products Grid -->
+            <div class="product-grid">
+                @foreach (var product in Model)
+                {
+                    <div class="product-card">
+                        <img src="@product.ImageUrl" alt="@product.Name" class="product-image">
+                        <div class="product-info">
+                            <h3 class="product-title">@product.Name</h3>
+                            <div class="product-price">@product.Price.ToString("C")</div>
+                            <span class="product-stock @(product.StockQuantity > 0 ? "stock-in" : "stock-out")">
+                                @(product.StockQuantity > 0 ? "متوفر" : "غير متوفر")
+                            </span>
+                            <div class="product-actions">
+                                <a href="/Admin/EditProduct/@product.Id" class="btn btn-primary">
+                                    <i class="fas fa-edit"></i>
+                                    تعديل
+                                </a>
+                                <form asp-action="DeleteProduct" asp-route-id="@product.Id" method="post" style="display: inline;">
+                                    <button type="submit" class="btn btn-danger" onclick="return confirm('هل أنت متأكد من حذف هذا المنتج؟')">
+                                        <i class="fas fa-trash"></i>
+                                        حذف
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </main>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        // Toggle Sidebar on Mobile
+        document.querySelector('.sidebar-toggle').addEventListener('click', function() {
+            document.querySelector('.sidebar').classList.toggle('active');
+        });
+    </script>
+</body>
+</html> 

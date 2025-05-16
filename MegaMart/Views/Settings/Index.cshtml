@@ -1,0 +1,106 @@
+@model MegaMart.Controllers.StoreSettings
+@{
+    ViewData["Title"] = "إعدادات المتجر";
+    Layout = "_AdminLayout";
+}
+
+<div class="container-fluid">
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">إعدادات المتجر</h1>
+    </div>
+
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">تحديث إعدادات المتجر</h6>
+        </div>
+        <div class="card-body">
+            <form asp-action="UpdateSettings" method="post">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="StoreName">اسم المتجر</label>
+                            <input asp-for="StoreName" class="form-control" />
+                            <span asp-validation-for="StoreName" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="StoreEmail">البريد الإلكتروني</label>
+                            <input asp-for="StoreEmail" class="form-control" />
+                            <span asp-validation-for="StoreEmail" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="StorePhone">رقم الهاتف</label>
+                            <input asp-for="StorePhone" class="form-control" />
+                            <span asp-validation-for="StorePhone" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="StoreAddress">العنوان</label>
+                            <input asp-for="StoreAddress" class="form-control" />
+                            <span asp-validation-for="StoreAddress" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label asp-for="StoreDescription">وصف المتجر</label>
+                            <textarea asp-for="StoreDescription" class="form-control" rows="3"></textarea>
+                            <span asp-validation-for="StoreDescription" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label asp-for="Currency">العملة</label>
+                            <input asp-for="Currency" class="form-control" />
+                            <span asp-validation-for="Currency" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label asp-for="TaxRate">نسبة الضريبة (%)</label>
+                            <input asp-for="TaxRate" class="form-control" type="number" step="0.01" />
+                            <span asp-validation-for="TaxRate" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label asp-for="ShippingCost">تكلفة الشحن</label>
+                            <input asp-for="ShippingCost" class="form-control" type="number" step="0.01" />
+                            <span asp-validation-for="ShippingCost" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="MinimumOrderAmount">الحد الأدنى للطلب</label>
+                            <input asp-for="MinimumOrderAmount" class="form-control" type="number" step="0.01" />
+                            <span asp-validation-for="MinimumOrderAmount" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">حفظ الإعدادات</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+} 

@@ -1,0 +1,12 @@
+@{
+    ViewData["Title"] = "خطأ";
+}
+
+<div class="text-center mt-5">
+    <h2 class="text-danger">@ViewData["Title"]</h2>
+    <div class="alert alert-danger mt-4">
+        <p>عذراً، حدث خطأ أثناء محاولة تأكيد بريدك الإلكتروني.</p>
+        <p>قد يكون الرابط غير صالح أو منتهي الصلاحية.</p>
+        <p>يرجى المحاولة مرة أخرى أو <a href="@Url.Action("Register", "Account")">التسجيل من جديد</a>.</p>
+    </div>
+</div> 

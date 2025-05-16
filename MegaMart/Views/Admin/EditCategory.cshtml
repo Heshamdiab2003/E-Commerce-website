@@ -1,0 +1,149 @@
+@model MegaMart.Models.Category
+@{
+    ViewData["Title"] = "تعديل الفئة";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>@ViewData["Title"] - MegaMart</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link href="~/css/admin-categories.css" rel="stylesheet">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <a href="/Admin/Dashboard" class="sidebar-brand">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span>MegaMart</span>
+                </a>
+            </div>
+            <ul class="sidebar-menu">
+                <li class="sidebar-item">
+                    <a href="/Admin/Dashboard" class="sidebar-link">
+                        <i class="fas fa-tachometer-alt"></i>
+                        <span>لوحة التحكم</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="/Admin/Products" class="sidebar-link">
+                        <i class="fas fa-box"></i>
+                        <span>المنتجات</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="/Admin/Categories" class="sidebar-link active">
+                        <i class="fas fa-tags"></i>
+                        <span>الفئات</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="/Admin/Orders" class="sidebar-link">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span>الطلبات</span>
+                    </a>
+                </li>
+            </ul>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Topbar -->
+            <div class="topbar">
+                <div class="topbar-search">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="بحث...">
+                </div>
+                <div class="topbar-actions">
+                    <span>مرحباً، @User.Identity.Name</span>
+                    <form asp-controller="Account" asp-action="Logout" method="post" style="display: inline;">
+                        <button type="submit" class="btn btn-outline">
+                            <i class="fas fa-sign-out-alt"></i>
+                            تسجيل الخروج
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Category Form -->
+            <div class="category-form">
+                <h2 class="form-title">تعديل الفئة</h2>
+                <form asp-action="EditCategory" method="post" enctype="multipart/form-data">
+                    <input type="hidden" asp-for="Id" />
+                    <input type="hidden" asp-for="ImageUrl" />
+
+                    <div class="form-group">
+                        <label asp-for="Name" class="form-label">اسم الفئة</label>
+                        <input asp-for="Name" class="form-control" required>
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="Description" class="form-label">وصف الفئة</label>
+                        <textarea asp-for="Description" class="form-control" rows="4"></textarea>
+                        <span asp-validation-for="Description" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">صورة الفئة</label>
+                        @if (!string.IsNullOrEmpty(Model.ImageUrl))
+                        {
+                            <img src="@Model.ImageUrl" alt="@Model.Name" class="current-image">
+                        }
+                        <div class="image-upload" id="imageUpload">
+                            <i class="fas fa-cloud-upload-alt"></i>
+                            <p>اسحب وأفلت الصورة هنا أو انقر للاختيار</p>
+                            <input type="file" name="ImageFile" id="imageFile" accept="image/*" style="display: none;">
+                        </div>
+                        <img id="imagePreview" class="image-preview" style="display: none;">
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-save"></i>
+                            حفظ التغييرات
+                        </button>
+                        <a href="/Admin/Categories" class="btn btn-outline">
+                            <i class="fas fa-times"></i>
+                            إلغاء
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </main>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        // Image Upload Preview
+        document.getElementById('imageUpload').addEventListener('click', function() {
+            document.getElementById('imageFile').click();
+        });
+
+        document.getElementById('imageFile').addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const preview = document.getElementById('imagePreview');
+                    preview.src = e.target.result;
+                    preview.style.display = 'block';
+                }
+                reader.readAsDataURL(file);
+            }
+        });
+
+        // Toggle Sidebar on Mobile
+        document.querySelector('.sidebar-toggle').addEventListener('click', function() {
+            document.querySelector('.sidebar').classList.toggle('active');
+        });
+    </script>
+</body>
+</html> 

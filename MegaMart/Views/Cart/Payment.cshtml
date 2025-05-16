@@ -1,0 +1,26 @@
+@model MegaMart.Models.PaymentModel
+@{
+    ViewData["Title"] = "الدفع";
+}
+<link rel="stylesheet" href="~/css/payment.css" />
+<div class="payment-container">
+    <h2>الدفع</h2>
+    <form asp-action="Payment" method="post">
+        <div class="form-group">
+            <label asp-for="CardNumber">رقم البطاقة</label>
+            <input asp-for="CardNumber" class="form-control" />
+            <span asp-validation-for="CardNumber" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Expiry">تاريخ الانتهاء</label>
+            <input asp-for="Expiry" class="form-control" placeholder="MM/YY" />
+            <span asp-validation-for="Expiry" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="CVC">كود الأمان</label>
+            <input asp-for="CVC" class="form-control" />
+            <span asp-validation-for="CVC" class="text-danger"></span>
+        </div>
+        <button type="submit" class="btn btn-primary">إتمام الطلب</button>
+    </form>
+</div> 

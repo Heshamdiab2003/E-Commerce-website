@@ -1,0 +1,23 @@
+@{
+    ViewData["Title"] = "سلة التسوق";
+}
+<link rel="stylesheet" href="~/css/cart.css" />
+<div class="cart-container">
+    <h2>سلة التسوق</h2>
+    <div class="cart-items">
+        <!-- هنا يتم عرض المنتجات في السلة -->
+        <div class="cart-item">
+            <img src="/images/products/sample.jpg" alt="منتج" class="cart-item-img" />
+            <div class="cart-item-info">
+                <h4>اسم المنتج</h4>
+                <p>الكمية: 2</p>
+                <p>السعر: 100 ج.م</p>
+            </div>
+        </div>
+        <!-- ... -->
+    </div>
+    <div class="cart-summary">
+        <p>الإجمالي: <span>200 ج.م</span></p>
+        <a href="/Cart/Checkout" class="btn btn-primary">إتمام الشراء</a>
+    </div>
+</div> 
